@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0F172A;
+  --color-secondary: #38BDF8;
+  --color-accent: #22C55E; /* Modern Success Green */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-800 font-body overflow-x-hidden antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading transition-all duration-300 text-slate-900;
+  }
+}
+
+/* Global Button Styles */
+.btn-primary {
+  @apply bg-[#0F172A] text-white px-8 py-3 rounded-lg font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all;
+}
+
+.btn-accent {
+  @apply bg-[#3FA14C] text-white px-10 py-4 rounded-lg font-bold hover:bg-[#348A3F] transition-colors shadow-lg;
+}
+
+/* Custom Swiper Styles */
+.swiper-pagination-bullet {
+  @apply bg-slate-300 scale-75;
+}
+.swiper-pagination-bullet-active {
+  background-color: #2563EB !important;
+  transform: scale(1) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-50;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300;
+}
