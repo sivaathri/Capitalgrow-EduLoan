@@ -14,12 +14,15 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import BackToTop from './components/BackToTop';
+import CheckEligibilityModal from './components/CheckEligibilityModal';
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
   return (
     <div className="relative selection:bg-accent selection:text-primary">
-      <Navbar />
-      <Hero />
+      <Navbar onCheckEligibility={() => setIsModalOpen(true)} />
+      <Hero onCheckEligibility={() => setIsModalOpen(true)} />
       <div className="relative z-10">
         <About />
         <Features />
@@ -35,6 +38,10 @@ function App() {
       <Footer />
       <WhatsAppButton />
       <BackToTop />
+      <CheckEligibilityModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </div>
   );
 }
