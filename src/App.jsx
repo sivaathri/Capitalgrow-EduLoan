@@ -6,7 +6,6 @@ import Features from './components/Features';
 import WhyChooseUs from './components/WhyChooseUs';
 import Benefits from './components/Benefits';
 import Countries from './components/Countries';
-import BankPartners from './components/BankPartners';
 import Services from './components/Services';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
@@ -29,7 +28,6 @@ function App() {
         <WhyChooseUs />
         <Benefits />
         <Countries />
-        <BankPartners />
         <Services />
         <Process />
         <Testimonials />

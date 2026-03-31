@@ -19,11 +19,33 @@ const BankPartners = () => {
   ];
 
   return (
-    <section id="banks" className="py-20 bg-primary/40 border-y border-white/5 relative group">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col items-center mb-16 text-center">
-          <span className="text-accent text-[10px] uppercase tracking-[0.6em] font-black mb-4">Official Lending Partners</span>
-          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter text-white/80">Our Financial <span className="text-accent">Ecosystem.</span></h2>
+    <section id="banks" className="py-24 bg-white border-y border-slate-100 relative overflow-hidden">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="flex flex-col items-center mb-20 text-center">
+          
+          <div className="relative inline-block mb-4">
+            {/* Left Sparks */}
+            <div className="absolute -left-12 top-1/2 -translate-y-1/2 flex items-center gap-1 pointer-events-none">
+              <div className="flex flex-col gap-1.5 -rotate-[20deg]">
+                <div className="w-3.5 h-1 bg-blue-600 rounded-full"></div>
+                <div className="w-3.5 h-1 bg-orange-500 rounded-full"></div>
+                <div className="w-3.5 h-1 bg-pink-500 rounded-full"></div>
+              </div>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-black text-[#0F172A] px-4">Our Banking Partners</h2>
+
+            {/* Right Sparks */}
+            <div className="absolute -right-12 top-1/2 -translate-y-1/2 flex items-center gap-1 pointer-events-none">
+              <div className="flex flex-col gap-1.5 rotate-[20deg]">
+                <div className="w-3.5 h-1 bg-blue-600 rounded-full"></div>
+                <div className="w-3.5 h-1 bg-orange-500 rounded-full"></div>
+                <div className="w-3.5 h-1 bg-green-500 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-xl text-slate-500 font-medium">A variety of top lenders you can choose from</p>
         </div>
 
         <Swiper
@@ -44,10 +66,10 @@ const BankPartners = () => {
           className="logo-slider-custom items-center"
         >
           {banks.map((bank, i) => (
-            <SwiperSlide key={i} className="flex items-center justify-center py-4">
-              <div className="glass p-8 rounded-[2rem] w-full aspect-[3/1.5] flex flex-col items-center justify-center border-white/5 transition-all duration-300 hover:bg-white/10 hover:border-accent/40 grayscale group-hover:grayscale-0 active:scale-95 cursor-default">
-                <div className="text-xl md:text-2xl font-black text-white/60 tracking-tighter uppercase italic">{bank.name}</div>
-                <div className="text-[8px] uppercase font-bold tracking-[0.2em] text-accent/30 mt-2">{bank.type}</div>
+            <SwiperSlide key={i} className="flex items-center justify-center py-4 px-2">
+              <div className="bg-white border border-slate-100 p-8 rounded-2xl w-full flex flex-col items-center justify-center shadow-[0_10px_30px_rgba(15,23,42,0.04)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(15,23,42,0.08)] hover:-translate-y-1 active:scale-95 cursor-default">
+                <div className="text-xl md:text-2xl font-black text-[#1E2D4A] tracking-tighter uppercase">{bank.name}</div>
+                <div className="text-[9px] uppercase font-bold tracking-[0.2em] text-slate-400 mt-2">{bank.type}</div>
               </div>
             </SwiperSlide>
           ))}
