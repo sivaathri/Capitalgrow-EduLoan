@@ -263,13 +263,10 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
           />
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            className="relative w-full max-w-[1000px] bg-white rounded-[40px] shadow-2xl z-10 flex flex-col"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-[32px] w-full max-w-4xl max-h-[95vh] overflow-y-auto relative shadow-[0_20px_50px_rgba(0,0,0,0.2)] scrollbar-hide"
+            className="relative w-full max-w-4xl max-h-[95vh] bg-white rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] z-10 flex flex-col overflow-y-auto scrollbar-hide"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Conditional Render: Form vs Success Message */}
