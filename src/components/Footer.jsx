@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket, Share2, Globe, MessageSquare, GraduationCap } from 'lucide-react';
+import footerBg from '../assets/footer.png';
 
 const Footer = () => {
   return (
@@ -88,11 +89,11 @@ const Footer = () => {
         </div>
       </div>
       
-      {/* City Landmarks Line Art - Global Skyline */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden opacity-[0.12] pointer-events-none select-none z-0 h-48">
+      {/* City Landmarks Panoramic Backdrop - Full Height */}
+      <div className="absolute inset-0 w-full h-full opacity-[0.12] pointer-events-none select-none z-0">
         <img 
-          src="https://unicreds.com/assets/images/home_new/footer_bg.svg" 
-          alt="World Landmarks" 
+          src={footerBg} 
+          alt="World Landmarks Backdrop" 
           className="w-full h-full object-cover object-bottom"
         />
       </div>
