@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 
@@ -11,6 +11,16 @@ const CheckEligibilityModal = lazy(() => import('./components/CheckEligibilityMo
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Show the Eligibility Modal automatically on first load
+  useEffect(() => {
+    // A tiny delay ensures all animations and layouts settle for a smoother experience
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 1000); 
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="relative selection:bg-accent selection:text-primary">
