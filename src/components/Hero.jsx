@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, GraduationCap, Landmark, Zap, ShieldCheck, Wallet, Globe } from 'lucide-react';
-import heroStudent from '../assets/hero2.png'; 
+import heroStudent from '../assets/hero2.webp'; 
 
 const Hero = ({ onCheckEligibility }) => {
   return (
@@ -20,6 +20,8 @@ const Hero = ({ onCheckEligibility }) => {
           <img 
             src={heroStudent} 
             alt="Study Abroad" 
+            fetchPriority="high"
+            loading="eager"
             className="w-auto h-[60%] lg:h-[90%] object-contain scale-110 lg:scale-100 origin-bottom lg:origin-right transition-all duration-700 translate-y-12 lg:translate-y-0"
           />
       </div>

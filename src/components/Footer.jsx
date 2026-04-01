@@ -1,6 +1,6 @@
 import React from 'react';
 import { Rocket, Share2, Globe, MessageSquare } from 'lucide-react';
-import footerBg from '../assets/footer.png';
+import footerBg from '../assets/footer.webp';
 import logo from '../assets/footerlogo.png';
 
 const Footer = () => {
@@ -54,6 +54,7 @@ const Footer = () => {
         <img 
           src={footerBg} 
           alt="World Landmarks Backdrop" 
+          loading="lazy"
           className="w-full h-full object-cover object-bottom"
         />
       </div>

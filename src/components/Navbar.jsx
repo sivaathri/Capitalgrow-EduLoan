@@ -35,6 +35,7 @@ const Navbar = ({ onCheckEligibility }) => {
       </div>
     </nav>
   );
+  
 };
 
 export default Navbar;
