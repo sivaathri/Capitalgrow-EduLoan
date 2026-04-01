@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Headphones, GraduationCap, Building2, Wallet, User, Mail, Phone, Globe, Layers, CheckCircle2, ChevronDown, Plane } from 'lucide-react';
 
@@ -34,6 +34,102 @@ const allCountries = [
   "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", 
   "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
 ];
+
+// Beautifully Styled Custom Select Component
+const CustomSelect = ({ options, value, onChange, placeholder, icon: Icon, searchable = false }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedLabel = options.find(opt => (opt.value || opt) === value);
+  const displayLabel = selectedLabel ? (selectedLabel.label || selectedLabel) : placeholder;
+
+  const filteredOptions = searchable && searchTerm
+    ? options.filter(opt => {
+        const text = opt.label || opt;
+        return text.toLowerCase().includes(searchTerm.toLowerCase());
+      })
+    : options;
+
+  return (
+    <div className="relative z-50 w-full" ref={dropdownRef}>
+      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none z-10">
+        <Icon className="w-[18px] h-[18px] text-gray-400" />
+      </div>
+      
+      <div 
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full pl-10 pr-10 py-3 bg-white border ${isOpen ? 'border-[#6B46C1] ring-1 ring-[#6B46C1]' : 'border-gray-200'} rounded-lg text-[14px] outline-none transition-all cursor-pointer font-medium flex items-center ${!value ? 'text-gray-400' : 'text-gray-800'}`}
+      >
+        <span className="truncate flex-1 select-none">{displayLabel}</span>
+      </div>
+      
+      <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none z-10">
+        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98, y: 5 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.98, y: 5 }}
+            transition={{ duration: 0.15 }}
+            className="absolute z-50 w-[105%] -left-[2.5%] mt-2 bg-white border border-purple-100 rounded-xl shadow-[0_15px_40px_rgba(107,70,193,0.15)] overflow-hidden flex flex-col"
+          >
+            {searchable && (
+              <div className="p-3 border-b border-gray-100 bg-gray-50/50">
+                <input 
+                  type="text" 
+                  autoFocus
+                  placeholder="Search..." 
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full bg-white border border-gray-200 rounded-md px-3 py-2 text-[13px] outline-none focus:border-[#6B46C1] focus:ring-1 focus:ring-[#6B46C1] placeholder-gray-400 transition-shadow"
+                />
+              </div>
+            )}
+            
+            <div className="max-h-56 overflow-y-auto scrollbar-thin scrollbar-thumb-purple-200 scrollbar-track-transparent py-2">
+              {filteredOptions.length === 0 ? (
+                <div className="px-4 py-3 text-[13px] text-gray-500 text-center font-medium">No results found.</div>
+              ) : (
+                filteredOptions.map((opt, i) => {
+                  const label = opt.label || opt;
+                  const val = opt.value || opt;
+                  return (
+                    <div 
+                      key={i}
+                      onClick={() => {
+                        onChange(val);
+                        setIsOpen(false);
+                        setSearchTerm('');
+                      }}
+                      className={`px-4 py-2.5 text-[13px] font-medium cursor-pointer transition-colors hover:bg-purple-50 hover:text-[#6B46C1] flex items-center justify-between ${value === val ? 'bg-purple-50 text-[#6B46C1]' : 'text-gray-700'}`}
+                    >
+                      {label}
+                      {value === val && <CheckCircle2 className="w-4 h-4 text-[#6B46C1]" />}
+                    </div>
+                  )
+                })
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const CheckEligibilityModal = ({ isOpen, onClose }) => {
   useEffect(() => {
@@ -225,48 +321,31 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
                 {/* Preferred Study Destination */}
                 <div className="space-y-2">
-                  <label htmlFor="country-input" className="block text-[14px] font-bold text-gray-800">Preferred Study Destination <span className="text-red-500">*</span></label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <Globe className="w-[18px] h-[18px] text-gray-400" />
-                    </div>
-                    <select 
-                      id="country-input" name="country" required
-                      value={formData.country} onChange={handleChange}
-                      className={`w-full pl-10 pr-10 py-3 bg-white border border-gray-200 rounded-lg text-[14px] focus:border-[#6B46C1] focus:ring-1 focus:ring-[#6B46C1] outline-none transition-all appearance-none cursor-pointer font-medium ${!formData.country ? 'text-gray-400' : 'text-gray-800'}`}
-                    >
-                      <option value="" disabled>Choose your target country</option>
-                      {allCountries.map(country => (
-                        <option key={country} value={country}>{country}</option>
-                      ))}
-                    </select>
-                    <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                      <ChevronDown className="w-5 h-5 text-gray-400" />
-                    </div>
-                  </div>
+                  <label className="block text-[14px] font-bold text-gray-800">Preferred Study Destination <span className="text-red-500">*</span></label>
+                  <CustomSelect 
+                    options={allCountries}
+                    value={formData.country}
+                    onChange={(val) => setFormData(prev => ({...prev, country: val}))}
+                    placeholder="Choose your target country"
+                    icon={Globe}
+                    searchable={true}
+                  />
                 </div>
 
                 {/* I am looking for */}
-                <div className="space-y-2">
-                  <label htmlFor="intent-input" className="block text-[14px] font-bold text-gray-800">I am looking for <span className="text-red-500">*</span></label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <Layers className="w-[18px] h-[18px] text-gray-400" />
-                    </div>
-                    <select 
-                      id="intent-input" name="intent" required
-                      value={formData.intent} onChange={handleChange}
-                      className={`w-full pl-10 pr-10 py-3 bg-white border border-gray-200 rounded-lg text-[14px] focus:border-[#6B46C1] focus:ring-1 focus:ring-[#6B46C1] outline-none transition-all appearance-none cursor-pointer font-medium ${!formData.intent ? 'text-gray-400' : 'text-gray-800'}`}
-                    >
-                      <option value="" disabled>Select an option</option>
-                      <option value="Secured Loan">Education Loan</option>
-                      <option value="Unsecured Loan">Personal Loan</option>
-                      <option value="Assistance">Business Loan</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                      <ChevronDown className="w-5 h-5 text-gray-400" />
-                    </div>
-                  </div>
+                <div className="space-y-2 relative z-40">
+                  <label className="block text-[14px] font-bold text-gray-800">I am looking for <span className="text-red-500">*</span></label>
+                  <CustomSelect 
+                    options={[
+                      { label: "Education Loan", value: "Secured Loan" },
+                      { label: "Personal Loan", value: "Unsecured Loan" },
+                      { label: "Business Loan", value: "Assistance" }
+                    ]}
+                    value={formData.intent}
+                    onChange={(val) => setFormData(prev => ({...prev, intent: val}))}
+                    placeholder="Select an option"
+                    icon={Layers}
+                  />
                 </div>
 
                 {/* Disclaimer Text Block */}
