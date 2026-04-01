@@ -9,7 +9,25 @@ import {
   Globe2 
 } from 'lucide-react';
 
+import personalLoanIcon from '../assets/personal_loan.png';
+import businessLoanIcon from '../assets/business_loan.png';
+import homeLoanIcon from '../assets/home_loan.png';
+import abroadEducationLoanIcon from '../assets/abroad_education_loan.png';
+import carLoanIcon from '../assets/car_loan.png';
+import insuranceIcon from '../assets/insurance.png';
+import forexIcon from '../assets/forex.png';
+
 const Features = () => {
+  const otherServices = [
+    { name: "Personal Loan", icon: personalLoanIcon },
+    { name: "Business Loan", icon: businessLoanIcon },
+    { name: "Home Loan & Mortgage Loan", icon: homeLoanIcon },
+    { name: "Abroad Education Loan", icon: abroadEducationLoanIcon },
+    { name: "Car Loan", icon: carLoanIcon },
+    { name: "Insurance", icon: insuranceIcon },
+    { name: "Forex", icon: forexIcon },
+  ];
+
   const cards = [
     {
       title: "100% Comprehensive",
@@ -52,7 +70,36 @@ const Features = () => {
   return (
     <section id="features" className="py-24 bg-white relative">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-left mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        {/* Other Services Section */}
+        <div className="mb-24">
+          <div className="flex items-center gap-4 mb-10">
+            <div className="h-px flex-1 bg-slate-100"></div>
+            <h2 className="text-2xl font-bold text-slate-400 uppercase tracking-[0.3em]">Other Services</h2>
+            <div className="h-px flex-1 bg-slate-100"></div>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
+            {otherServices.map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="flex flex-col items-center text-center group cursor-pointer"
+              >
+                <div className="w-28 h-28 mb-4 rounded-3xl bg-slate-50 flex items-center justify-center p-2 group-hover:bg-green-50 transition-colors duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] group-hover:-translate-y-2 transition-all">
+                  <img src={service.icon} alt={service.name} className="w-full h-full object-contain" />
+                </div>
+                <span className="text-sm font-extrabold text-[#1E2D4A] leading-tight max-w-[140px] group-hover:text-green-600 transition-colors">
+                  {service.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-left mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 pt-12 border-t border-slate-50">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-[#0F172A] leading-tight">
               Unlock Your <br /> <span className="text-green-600">Global Potential.</span>
