@@ -69,7 +69,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 relative z-20">
           <div className="text-[11px] font-medium tracking-tight text-slate-400">
-            All rights reserved | Copyright © 2026 Capital Grow Pvt. Ltd. Made with 💚
+         © 2026 Pondy IT Solutions Made with | All rights reserved 💚
           </div>
           <div className="flex gap-4 text-[11px] font-medium tracking-tight text-slate-400">
             <a href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</a>
