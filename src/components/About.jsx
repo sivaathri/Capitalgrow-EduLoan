@@ -32,7 +32,7 @@ const About = () => {
   return (
     <section
       id="banks"
-      className="py-12 bg-white border-b border-slate-50 relative overflow-hidden"
+      className="py-12 bg-white relative overflow-hidden"
     >
       <div className="container mx-auto px-6 max-w-7xl text-center">
         <div className="flex flex-col items-center mb-8">

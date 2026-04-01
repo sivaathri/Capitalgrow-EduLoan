@@ -68,7 +68,7 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-24 bg-white relative">
+    <section id="features" className="pb-24 pt-0 bg-white relative">
       <div className="container mx-auto max-w-7xl">
         {/* Other Services Section */}
         <div className="mb-24">
