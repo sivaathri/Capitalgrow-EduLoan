@@ -214,10 +214,10 @@ const Features = () => {
           </motion.div>
         </div>
 
-        {/* Unique Benefits Grid Section */}
-        <div className="mb-24 py-16 bg-white border border-slate-100 rounded-[32px] shadow-sm overflow-hidden">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 px-8 md:px-14">
-            {/* Left Image Side */}
+        {/* Unique Benefits Grid Section - Compact */}
+        <div className="mb-16 py-10 bg-white border border-slate-100 rounded-[32px] shadow-sm overflow-hidden">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-8 md:px-14">
+            {/* Left Image Side - Refined */}
             <div className="lg:w-5/12">
               <motion.div 
                 initial={{ opacity: 0, x: -30 }}
@@ -225,33 +225,32 @@ const Features = () => {
                 viewport={{ once: true }}
                 className="relative rounded-[32px] overflow-hidden shadow-2xl group"
               >
-                <img src={hero1} alt="Education Benefits" className="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-blue-600/10 mix-blend-overlay"></div>
-               
+                <img src={hero1} alt="Education Benefits" className="w-full h-[360px] object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-blue-600/5 mix-blend-overlay"></div>
               </motion.div>
             </div>
 
-            {/* Right Content Side */}
+            {/* Right Content Side - Optimized */}
             <div className="lg:w-7/12">
-               <div className="mb-10 text-center lg:text-left">
-                 <h2 className="text-3xl md:text-4xl font-black text-[#1E2D4A] mb-4">Unique Benefits of <span className="text-blue-600">Education Loan</span></h2>
-                 <p className="text-slate-500 font-medium">Unlock specialized advantages engineered for your success abroad.</p>
+               <div className="mb-6 text-center lg:text-left">
+                 <h2 className="text-2xl md:text-3xl font-black text-[#1E2D4A] mb-3">Unique Benefits of <span className="text-blue-600">Education Loan</span></h2>
+                 <p className="text-sm text-slate-500 font-medium">Unlock specialized advantages engineered for your success abroad.</p>
                </div>
 
                <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-slate-100 border border-slate-100 rounded-2xl overflow-hidden shadow-inner">
                  {[
-                   { id: 1, label: "No Margin Money Required", icon: <TrendingUp className="w-6 h-6" /> },
-                   { id: 2, label: "Pre-Visa Disbursement", icon: <CalendarClock className="w-6 h-6" /> },
-                   { id: 3, label: "Tax Benefit Under Sec 80-E", icon: <IndianRupee className="w-6 h-6" /> },
-                   { id: 4, label: "No Collateral Required", icon: <ShieldCheck className="w-6 h-6" /> },
-                   { id: 5, label: "100% Finance", icon: <Zap className="w-6 h-6" /> },
-                   { id: 6, label: "Attractive ROI", icon: <Globe2 className="w-6 h-6" /> },
+                   { id: 1, label: "No Margin Money Required", icon: <TrendingUp className="w-5 h-5" /> },
+                   { id: 2, label: "Pre-Visa Disbursement", icon: <CalendarClock className="w-5 h-5" /> },
+                   { id: 3, label: "Tax Benefit Under Sec 80-E", icon: <IndianRupee className="w-5 h-5" /> },
+                   { id: 4, label: "No Collateral Required", icon: <ShieldCheck className="w-5 h-5" /> },
+                   { id: 5, label: "100% Finance", icon: <Zap className="w-5 h-5" /> },
+                   { id: 6, label: "Attractive ROI", icon: <Globe2 className="w-5 h-5" /> },
                  ].map((benefit, idx) => (
-                   <div key={idx} className="bg-white p-6 md:p-8 flex flex-col items-center lg:items-start text-center lg:text-left gap-4 hover:bg-slate-50 transition-colors cursor-default">
-                     <div className="text-blue-600 bg-blue-50 p-3 rounded-xl border border-blue-100">
+                   <div key={idx} className="bg-white p-5 md:p-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-3 hover:bg-slate-50 transition-colors cursor-default">
+                     <div className="text-blue-600 bg-blue-50 p-2.5 rounded-lg border border-blue-100">
                        {benefit.icon}
                      </div>
-                     <span className="text-sm font-black text-[#1E2D4A] leading-tight">
+                     <span className="text-[13px] font-black text-[#1E2D4A] leading-tight">
                        {benefit.label}
                      </span>
                    </div>
