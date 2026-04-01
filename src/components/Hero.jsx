@@ -16,11 +16,11 @@ const Hero = ({ onCheckEligibility }) => {
       </div>
 
       {/* Background Image Container */}
-      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 pointer-events-none flex items-center justify-end pr-0 lg:pr-12">
+      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 pointer-events-none flex items-end lg:items-center justify-center lg:justify-end pr-0 lg:pr-12 opacity-20 lg:opacity-100 overflow-hidden">
           <img 
             src={heroStudent} 
             alt="Study Abroad" 
-            className="w-auto h-full lg:h-[90%] object-contain scale-110 lg:scale-100 origin-right transition-all duration-700"
+            className="w-auto h-[60%] lg:h-[90%] object-contain scale-110 lg:scale-100 origin-bottom lg:origin-right transition-all duration-700 translate-y-12 lg:translate-y-0"
           />
       </div>
 
@@ -122,8 +122,8 @@ const Hero = ({ onCheckEligibility }) => {
               Check Your Eligibility Now
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </button>
-            <div className="flex items-center gap-2.5 text-[#94A3B8] text-xs font-bold tracking-wide uppercase px-2">
-              <ShieldCheck className="w-4 h-4 text-[#5DA7DB]" />
+            <div className="flex flex-wrap items-center gap-2.5 text-[#94A3B8] text-xs font-bold tracking-wide uppercase px-2 mt-4">
+              <ShieldCheck className="w-4 h-4 text-[#5DA7DB] shrink-0" />
               <span>100% Secure</span>
               <span className="w-1 h-1 bg-slate-200 rounded-full mx-1"></span>
               <span>No Impact on Credit Score</span>

@@ -35,7 +35,7 @@ const BackToTop = () => {
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-32 right-8 z-[60] w-16 h-16 bg-white rounded-3xl flex items-center justify-center border-2 border-slate-100/60 text-secondary shadow-[0_20px_50px_rgba(15,23,42,0.15)] hover:border-secondary transition-all group overflow-hidden"
+          className="fixed bottom-24 md:bottom-32 right-4 md:right-8 z-[60] w-14 h-14 md:w-16 md:h-16 bg-white rounded-full md:rounded-3xl flex items-center justify-center border-2 border-slate-100/60 text-secondary shadow-[0_20px_50px_rgba(15,23,42,0.15)] hover:border-secondary transition-all group overflow-hidden"
           aria-label="Back to top"
         >
           <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>

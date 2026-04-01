@@ -12,7 +12,7 @@ const WhatsAppButton = () => {
       animate={{ scale: 1, opacity: 1 }}
       whileHover={{ scale: 1.1, rotate: 10 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-10 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-[1.5rem] flex items-center justify-center shadow-[0_20px_50px_rgba(37,211,102,0.3)] group overflow-hidden border-2 border-white"
+      className="fixed bottom-4 md:bottom-10 right-4 md:right-8 z-[100] w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full md:rounded-[1.5rem] flex items-center justify-center shadow-[0_20px_50px_rgba(37,211,102,0.3)] group overflow-hidden border-2 border-white"
     >
       <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
       <MessageCircle size={32} className="relative z-10" />
