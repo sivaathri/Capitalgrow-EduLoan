@@ -7,13 +7,13 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-100 pt-32 pb-16 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
+        <div className="flex flex-col md:flex-row justify-between gap-20 mb-20 md:mb-32">
           {/* Brand Info */}
-          <div className="lg:col-span-1">
+          <div className="max-w-md">
             <div className="mb-10 block cursor-pointer">
               <img src={logo} alt="Capital Grow Logo" className="h-16 w-auto object-contain" />
             </div>
-            <p className="text-lg text-slate-400 leading-relaxed font-heading italic tracking-tight mb-12 max-w-sm">
+            <p className="text-lg text-slate-400 leading-relaxed font-heading italic tracking-tight mb-12">
               Empowering the next generation of global leaders with customized financial solutions for international studies.
             </p>
             <div className="flex gap-6">
@@ -25,13 +25,10 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Beautiful CTA Block replacing plain text links */}
-         
-
           {/* Location */}
-          <div className="lg:ml-auto">
-            <h4 className="text-[12px] font-black uppercase tracking-[0.5em] text-secondary mb-12 border-b border-slate-50 pb-4 italic">Region</h4>
-            <div className="text-primary/40 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic">
+          <div>
+            <h4 className="text-[12px] font-black uppercase tracking-[0.5em] text-secondary mb-8 md:mb-12 border-b border-slate-50 pb-4 italic">Region</h4>
+            <div className="text-primary/40 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic text-left">
               <span className="text-primary font-black italic block mb-2 underline decoration-accent/20 decoration-2 underline-offset-4 pointer-events-none">PUDUCHERRY HEADQUARTER</span>
               #1, 4th Cross, Anna Nagar East<br />
               PUDUCHERRY, 605001<br />
