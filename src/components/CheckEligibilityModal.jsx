@@ -61,6 +61,7 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
             <div className="bg-[#1E2D4A] px-8 py-6 text-white relative flex flex-col justify-center">
               <button 
                 onClick={onClose}
+                aria-label="Close Modal"
                 className="absolute top-4 right-4 p-1 hover:bg-white/20 rounded transition-colors"
                 type="button"
               >
@@ -113,10 +114,11 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
                 {/* Name */}
                 <div className="relative bg-white border border-[#D1D5DB] rounded-[3px] px-3 w-full h-[46px] flex items-center focus-within:border-[#5DA7DB]">
-                  <label className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
+                  <label htmlFor="name-input" className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
                     Name<span className="text-[#E04D4D]">*</span>
                   </label>
                   <input 
+                    id="name-input"
                     type="text" 
                     name="name"
                     required
@@ -129,10 +131,11 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
                 {/* Email */}
                 <div className="relative bg-white border border-[#D1D5DB] rounded-[3px] px-3 w-full h-[46px] flex items-center focus-within:border-[#5DA7DB]">
-                  <label className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
+                  <label htmlFor="email-input" className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
                     Email<span className="text-[#E04D4D]">*</span>
                   </label>
                   <input 
+                    id="email-input"
                     type="email" 
                     name="email"
                     required
@@ -146,12 +149,13 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                 {/* Mobile Number & Disclaimer */}
                 <div className="col-span-1 md:row-span-3">
                   <div className="relative bg-white border border-[#D1D5DB] rounded-[3px] px-3 w-full h-[46px] flex items-center focus-within:border-[#5DA7DB]">
-                    <label className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
+                    <label htmlFor="phone-input" className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
                       Mobile Number<span className="text-[#E04D4D]">*</span>
                     </label>
                     <div className="flex items-center text-[13px] w-full">
                       <span className="text-gray-600 mr-2 flex items-center">+91 <span className="text-gray-300 ml-2">|</span></span>
                       <input 
+                        id="phone-input"
                         type="tel" 
                         name="phone"
                         required
@@ -169,10 +173,11 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
                 {/* Target Country */}
                 <div className="relative bg-white border border-[#D1D5DB] rounded-[3px] px-3 w-full h-[46px] flex items-center focus-within:border-[#5DA7DB]">
-                  <label className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
+                  <label htmlFor="country-input" className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
                     Target Country<span className="text-[#E04D4D]">*</span>
                   </label>
                   <select 
+                    id="country-input"
                     name="country"
                     required
                     value={formData.country}
@@ -194,10 +199,11 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
                 {/* Loan Type */}
                 <div className="relative bg-white border border-[#D1D5DB] rounded-[3px] px-3 w-full h-[46px] flex items-center focus-within:border-[#5DA7DB]">
-                  <label className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
+                  <label htmlFor="loantype-input" className="absolute -top-2.5 left-3 bg-white px-1 text-[11px] text-gray-800 font-medium">
                     Loan type<span className="text-[#E04D4D]">*</span>
                   </label>
                   <select 
+                    id="loantype-input"
                     name="loanType"
                     required
                     value={formData.loanType}

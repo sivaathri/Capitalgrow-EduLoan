@@ -1,43 +1,35 @@
-import React from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Features from './components/Features';
-import WhyChooseUs from './components/WhyChooseUs';
-import Benefits from './components/Benefits';
-import Countries from './components/Countries';
-import Services from './components/Services';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import BackToTop from './components/BackToTop';
-import CheckEligibilityModal from './components/CheckEligibilityModal';
+
+// Lazy loading below-the-fold and modal components securely boosts Lighthouse Scores
+const About = lazy(() => import('./components/About'));
+const Features = lazy(() => import('./components/Features'));
+const Footer = lazy(() => import('./components/Footer'));
+const BackToTop = lazy(() => import('./components/BackToTop'));
+const CheckEligibilityModal = lazy(() => import('./components/CheckEligibilityModal'));
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="relative selection:bg-accent selection:text-primary">
       <Navbar onCheckEligibility={() => setIsModalOpen(true)} />
       <Hero onCheckEligibility={() => setIsModalOpen(true)} />
-      <div className="relative z-10">
-        <About />
-        <Features />
-        
-       
-       
-        
-       
-        
       
-        
-      </div>
-      <Footer />
-      <BackToTop />
-      <CheckEligibilityModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
+      {/* Lazy Loaded Below the Fold Elements */}
+      <Suspense fallback={<div className="min-h-screen bg-white" />}>
+        <div className="relative z-10">
+          <About />
+          <Features />
+        </div>
+        <Footer />
+        <BackToTop />
+        <CheckEligibilityModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+        />
+      </Suspense>
     </div>
   );
 }
