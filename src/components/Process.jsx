@@ -4,87 +4,80 @@ import { MessageSquareText, FileStack, ShieldEllipsis, BadgeCheck, ArrowRight } 
 
 const Process = () => {
   const steps = [
-    { 
-      id: "01", 
-      title: "Consultation", 
-      desc: "Profile evaluation and university selection with our expert advisors.",
-      icon: <MessageSquareText className="w-14 h-14 text-secondary" /> 
-    },
-    { 
-      id: "02", 
-      title: "Documentation", 
-      desc: "Digital collection of academic, KYC and financial liquidity proofs.",
-      icon: <FileStack className="w-14 h-14 text-secondary" /> 
-    },
-    { 
-      id: "03", 
-      title: "Loan Sanction", 
-      icon: <ShieldEllipsis className="w-14 h-14 text-secondary" />,
-      desc: "Fast approval from top-tier partner banks within 48 to 72 hours."
-    },
-    { 
-      id: "04", 
-      title: "Disbursement", 
-      desc: "Funds transferred to university or student account for immediate payment.",
-      icon: <BadgeCheck className="w-14 h-14 text-secondary" /> 
-    }
+    { id: "01", title: "Consultation", desc: "Profile evaluation & university selection.", icon: <MessageSquareText className="w-6 h-6" />, color: "text-blue-600 border-blue-100 bg-blue-50" },
+    { id: "02", title: "Documentation", desc: "Digital collection of financial proofs.", icon: <FileStack className="w-6 h-6" />, color: "text-indigo-600 border-indigo-100 bg-indigo-50" },
+    { id: "03", title: "Loan Sanction", icon: <ShieldEllipsis className="w-6 h-6" />, desc: "Fast approval from partner banks.", color: "text-sky-600 border-sky-100 bg-sky-50" },
+    { id: "04", title: "Disbursement", desc: "Immediate payment to university.", icon: <BadgeCheck className="w-6 h-6" />, color: "text-emerald-600 border-emerald-100 bg-emerald-50" }
   ];
 
   return (
-    <section id="process" className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-100">
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-        <div className="text-center mb-24 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight tracking-tight text-[#0F172A]">
-            How it <span className="text-blue-600">Works?</span>
-          </h2>
-          <p className="text-slate-500 text-lg font-medium tracking-tight">
-            A frictionless, technology-first approach to make your study abroad funding ready before the orientation.
-          </p>
+    <section id="process" className="py-16 bg-white border-y border-slate-50 relative">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-black text-[#1E2D4A] mb-3">
+              How it <span className="text-blue-600">Works?</span>
+            </h2>
+            <p className="text-slate-500 font-medium">A technology-first approach to international education funding.</p>
+          </div>
+          <div className="hidden md:flex gap-2">
+            {[1, 2, 3].map(i => <div key={i} className="w-2 h-2 rounded-full bg-blue-100" />)}
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          {/* Timeline Connector Desktop */}
+          <div className="hidden lg:block absolute top-8 left-12 right-12 h-px bg-slate-100 -z-10" />
+
           {steps.map((step, i) => (
             <motion.div 
               key={i} 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative group text-center lg:text-left flex flex-col items-center lg:items-start"
+              transition={{ delay: i * 0.1 }}
+              className="flex lg:flex-col items-center lg:items-start gap-4 lg:gap-6 group"
             >
-              <div className="mb-8 w-24 h-24 bg-white border border-slate-200 rounded-lg flex items-center justify-center relative z-10 group-hover:bg-blue-600 group-hover:border-blue-700 transition-all duration-300 shadow-md">
-                <div className="group-hover:text-white transition-colors">
-                  {step.icon}
-                </div>
-                <div className="absolute -top-3 -right-3 w-10 h-10 bg-blue-600 rounded flex items-center justify-center text-white font-black text-lg group-hover:bg-slate-900 transition-colors shadow-lg">
+              <div className={`w-16 h-16 shrink-0 rounded-2xl border ${step.color} flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 relative`}>
+                {step.icon}
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-[#1E2D4A] text-white text-[10px] font-black rounded-lg flex items-center justify-center">
                   {step.id}
                 </div>
               </div>
 
-              <h4 className="text-2xl font-black mb-4 text-[#0F172A] leading-tight group-hover:text-blue-600 transition-colors">
-                {step.title}
-              </h4>
-              <p className="text-sm font-medium text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
-                {step.desc}
-              </p>
-
-              {/* Connecting Icon */}
-              <div className="hidden lg:block absolute top-[110px] left-[100px] right-[-40px] h-[2px] bg-slate-200 group-last:hidden flex overflow-hidden">
-                 <div className="h-full w-full bg-blue-400 opacity-20 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <h4 className="text-lg font-black text-[#1E2D4A] mb-1 group-hover:text-blue-600 transition-colors">
+                  {step.title}
+                </h4>
+                <p className="text-sm font-medium text-slate-400 group-hover:text-slate-500 transition-colors">
+                  {step.desc}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Area (UniCreds Style) */}
-        <div className="mt-28 p-12 bg-[#0F172A] rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8 text-white shadow-2xl">
-           <div>
-              <h2 className="text-3xl font-black mb-2">Check your Loan Eligibility in 2 mins</h2>
-              <p className="text-slate-400 font-medium">Secure a Study Abroad Education Loan- Collateral-Free</p>
-           </div>
-           <button className="bg-green-600 hover:bg-green-700 text-white px-12 py-5 rounded-lg font-black text-xl flex items-center gap-3 transition-colors shadow-lg">
-              Check Eligibility <ArrowRight />
-           </button>
-        </div>
+        {/* Compact CTA Banner */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-[#1E2D4A] rounded-2xl p-4 md:p-1 flex flex-col md:flex-row items-center justify-between gap-4 overflow-hidden shadow-xl"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-6 px-8 py-4">
+             <div className="w-12 h-12 rounded-full bg-blue-600/20 flex items-center justify-center border border-blue-500/30">
+               <ArrowRight className="w-6 h-6 text-blue-400" />
+             </div>
+             <div>
+                <h3 className="text-lg font-bold text-white text-center md:text-left">Check Loan Eligibility in 2 mins</h3>
+                <p className="text-xs text-slate-400 font-medium uppercase tracking-widest text-center md:text-left">Secure Collateral-Free Education Loan</p>
+             </div>
+          </div>
+          
+          <button className="w-full md:w-auto bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-xl font-black text-lg transition-all shadow-lg active:scale-95 m-1">
+             Apply Now
+          </button>
+        </motion.div>
       </div>
     </section>
   );

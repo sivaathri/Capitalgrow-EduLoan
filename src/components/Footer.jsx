@@ -76,19 +76,26 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-16 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="text-[10px] uppercase font-black tracking-[0.6em] text-slate-300 italic">
-            © 2026 CAPITAL GROW EDU LOANS. ALL RIGHTS RESERVED.
+        <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 relative z-20">
+          <div className="text-[11px] font-medium tracking-tight text-slate-400">
+            All rights reserved | Copyright © 2026 Capital Grow Pvt. Ltd. Made with 💚
           </div>
-          <div className="flex gap-12 text-[10px] uppercase font-black tracking-[0.6em] text-slate-300 underline decoration-slate-100 decoration-4 underline-offset-8 italic">
-            <a href="#" className="hover:text-secondary transition-colors italic">Privacy Policy</a>
-            <a href="#" className="hover:text-secondary transition-colors italic">Terms of Service</a>
+          <div className="flex gap-4 text-[11px] font-medium tracking-tight text-slate-400">
+            <a href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</a>
+            <span className="text-slate-200">|</span>
+            <a href="#" className="hover:text-blue-600 transition-colors">Terms & Conditions</a>
           </div>
         </div>
       </div>
       
-      {/* Footer Graphic */}
-      <div className="absolute bottom-0 right-0 w-[50vw] h-[50vw] bg-secondary/[0.02] blur-[150px] translate-y-1/2 translate-x-1/2 rounded-full -z-0"></div>
+      {/* City Landmarks Line Art - Global Skyline */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden opacity-[0.12] pointer-events-none select-none z-0 h-48">
+        <img 
+          src="https://unicreds.com/assets/images/home_new/footer_bg.svg" 
+          alt="World Landmarks" 
+          className="w-full h-full object-cover object-bottom"
+        />
+      </div>
     </footer>
   );
 };

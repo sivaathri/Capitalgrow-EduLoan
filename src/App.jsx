@@ -7,7 +7,6 @@ import WhyChooseUs from './components/WhyChooseUs';
 import Benefits from './components/Benefits';
 import Countries from './components/Countries';
 import Services from './components/Services';
-import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -25,11 +24,12 @@ function App() {
       <div className="relative z-10">
         <About />
         <Features />
+        
        
        
         
        
-        <Process />
+        
       
         
       </div>
