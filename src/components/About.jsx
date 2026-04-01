@@ -69,13 +69,13 @@ const About = () => {
                   key={`${index}-${i}`}
                   className="flex flex-col items-center justify-center group flex-shrink-0"
                 >
-                  <div className="h-24 w-52 flex flex-col items-center justify-center bg-white rounded-2xl border border-slate-100 p-4 shadow-[0_4px_12px_rgba(30,45,74,0.05)] transition-all duration-300 group-hover:shadow-[0_12px_32px_rgba(30,45,74,0.1)] group-hover:-translate-y-4 hover:border-[#F37021]/20 overflow-hidden">
+                  <div className="h-32 w-64 flex flex-col items-center justify-center bg-white rounded-2xl border border-slate-100 p-2 shadow-[0_4px_12px_rgba(30,45,74,0.05)] transition-all duration-300 group-hover:shadow-[0_12px_32px_rgba(30,45,74,0.1)] group-hover:-translate-y-4 hover:border-[#F37021]/20 overflow-hidden">
                     {bank.image ? (
                       <div className="w-full h-full flex items-center justify-center p-2">
                         <img 
                           src={bank.image} 
                           alt={bank.name} 
-                          className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 scale-110"
+                          className="max-h-full max-w-full object-contain transition-all duration-300 scale-125 group-hover:scale-135"
                         />
                       </div>
                     ) : (
