@@ -205,17 +205,21 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
     // We'll prepare a combined message field in case your EmailJS template only uses {{message}}
     const emailParams = {
-      ...formData,
       message: `
-        New Lead Submission:
-        -------------------------
-        Name: ${formData.name}
-        Email: ${formData.email}
-        Phone: ${formData.phone}
-        Service Type: ${formData.service}
-        Study Destination: ${formData.country}
-        Looking For: ${formData.intent}
-        -------------------------
+🚀 NEW LEAD CAPTURE: Education Loan Portal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 STUDENT DETAILS:
+• Name: ${formData.name}
+• Email: ${formData.email}
+• Phone: ${formData.phone}
+
+💰 LOAN PREFERENCES:
+• Service Type: ${formData.service}
+• Study Destination: ${formData.country}
+• Looking For: ${formData.intent}
+
+📅 SUBMISSION TIME: ${new Date().toLocaleString()}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       `
     };
 
@@ -500,22 +504,22 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                      />
                   </div>
 
-                  <h2 className="text-3xl font-extrabold text-[#111827] mb-4">Submission Successful!</h2>
-                  <p className="text-[16px] text-gray-600 max-w-[500px] leading-relaxed mb-10">
-                    Thank you, <span className="font-bold text-[#1E2D4A]">{submittedUser}</span>! <br />
-                    We have received your details. One of our expert advisors will call you <span className="font-bold text-[#6B46C1]">shortly</span> to guide you through your {submittedService} journey.
-                  </p>
+                   <h2 className="text-3xl font-extrabold text-[#111827] mb-4">Submission Successful!</h2>
+                   <p className="text-[16px] text-gray-600 max-w-[500px] leading-relaxed mb-10">
+                     Thank you, <span className="font-bold text-[#1E2D4A]">{submittedUser}</span>! <br />
+                     We have received your details. One of our expert advisors will call you <span className="font-bold text-[#6B46C1]">shortly</span> to guide you through your {submittedService} journey.
+                   </p>
 
-                  <button 
-                    onClick={onClose}
-                    className="bg-[#1E2D4A] hover:bg-[#111827] text-white px-10 py-3 rounded-full font-bold text-[14px] transition-all shadow-md"
-                  >
-                    Got it, Thanks!
-                  </button>
+                   <button 
+                     onClick={onClose}
+                     className="bg-[#1E2D4A] hover:bg-[#111827] text-white px-10 py-3 rounded-full font-bold text-[14px] transition-all shadow-md"
+                   >
+                     Got it, Thanks!
+                   </button>
 
-                  <div className="mt-12 flex items-center gap-2 text-gray-400 font-medium text-[13px]">
-                     <Phone className="w-4 h-4" /> 24/7 Priority Candidate Support
-                  </div>
+                   <div className="mt-12 flex items-center gap-2 text-gray-400 font-medium text-[13px]">
+                      <Phone className="w-4 h-4" /> 24/7 Priority Candidate Support
+                   </div>
                 </motion.div>
               )}
             </AnimatePresence>
