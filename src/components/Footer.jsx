@@ -25,35 +25,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:ml-auto">
-            <h4 className="text-[12px] font-black uppercase tracking-[0.5em] text-secondary mb-12 border-b border-slate-50 pb-4 italic">Navigation</h4>
-            <ul className="space-y-6">
-              {['Home', 'About Us', 'Loan Products', 'Bank Partners', 'Success Stories'].map((link, i) => (
-                <li key={i}>
-                  <a href="#" className="text-primary/60 hover:text-secondary transition-all uppercase font-black text-[12px] tracking-[0.3em] flex items-center gap-4 group">
-                    <span className="w-2 h-2 bg-slate-100 rounded-full group-hover:bg-secondary transition-colors"></span>
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div className="lg:ml-auto">
-            <h4 className="text-[12px] font-black uppercase tracking-[0.5em] text-secondary mb-12 border-b border-slate-50 pb-4 italic">Support</h4>
-            <ul className="space-y-6">
-              {['Contact Us', 'Apply Now', 'Loan Calculator', 'Repayment Guide', 'FAQ'].map((link, i) => (
-                <li key={i}>
-                  <a href="#" className="text-primary/60 hover:text-secondary transition-all uppercase font-black text-[12px] tracking-[0.3em] flex items-center gap-4 group">
-                    <span className="w-2 h-2 bg-slate-100 rounded-full group-hover:bg-secondary transition-colors"></span>
-                    {link}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Beautiful CTA Block replacing plain text links */}
+         
 
           {/* Location */}
           <div className="lg:ml-auto">
