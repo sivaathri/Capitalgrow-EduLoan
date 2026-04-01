@@ -174,44 +174,56 @@ const Features = () => {
             ))}
           </div>
 
-          {/* CTA Banner */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden group bg-[#0F172A] rounded-[32px] p-1 shadow-2xl"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[80px] rounded-full translate-x-1/3 -translate-y-1/2"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-600/10 blur-[60px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
-
-            <div className="relative z-10 p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-10">
-              <div className="flex flex-col md:flex-row items-center gap-8 max-w-2xl">
-                <div className="shrink-0 w-20 h-20 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-2xl flex items-center justify-center relative overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-transparent"></div>
-                  <Sparkles className="w-10 h-10 text-blue-400 drop-shadow-[0_0_15px_rgba(56,189,248,0.5)] transition-transform duration-500" />
-                </div>
-                <div className="text-center md:text-left">
-                  <h3 className="text-2xl md:text-3xl font-black text-white mb-3 tracking-tight">Check Loan Eligibility in 2 Mins</h3>
-                  <p className="text-slate-400 text-lg font-medium leading-relaxed max-w-md">
-                    Secure your <span className="text-white underline decoration-blue-500 underline-offset-4">Collateral-Free</span> education loan with instant digital processing.
-                  </p>
-                </div>
-              </div>
-
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative group/btn flex items-center gap-4 bg-green-600 hover:bg-green-500 text-white px-12 py-6 rounded-2xl font-black text-xl shadow-[0_10px_30px_rgba(22,163,74,0.3)] transition-all overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
-                <span>Apply Now</span>
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                </div>
-                <span className="absolute inset-0 rounded-2xl ring-4 ring-green-600/30 animate-ping opacity-0 group-hover/btn:opacity-100"></span>
-              </motion.button>
-            </div>
-          </motion.div>
+              <motion.div 
+                   initial={{ opacity: 0, y: 30 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   className="mt-20 relative overflow-hidden bg-gradient-to-br from-[#1E2D4A] via-[#2A3B5F] to-[#1E2D4A] rounded-[32px] p-1 shadow-2xl shadow-blue-900/30 group"
+                 >
+                   {/* Glassmorphic Patterns & Glows */}
+                   <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[80px] -translate-y-1/2 translate-x-1/4 rounded-full pointer-events-none" />
+                   <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/5 blur-[80px] translate-y-1/2 -translate-x-1/4 rounded-full pointer-events-none" />
+                   
+                   <div className="relative flex flex-col md:flex-row items-center justify-between px-8 py-10 md:py-8 gap-8">
+                     <div className="flex flex-col md:flex-row items-center gap-8">
+                        <div className="relative">
+                          <div className="w-16 h-16 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                            <ArrowRight className="w-7 h-7 text-blue-300 animate-pulse" />
+                          </div>
+                          {/* Floating Indicator */}
+                          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-[#1E2D4A] shadow-lg shadow-green-500/40" />
+                        </div>
+         
+                        <div className="text-center md:text-left">
+                           <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/20 rounded-full mb-3">
+                             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
+                             <span className="text-[10px] font-black uppercase tracking-widest text-green-400">Available 24/7 Experts</span>
+                           </div>
+                           <h3 className="text-2xl md:text-3xl font-black text-white leading-tight mb-2">
+                             Start Your <span className="text-blue-300">Free Eligibility</span> Check
+                           </h3>
+                           <p className="text-sm font-medium text-slate-400/90 max-w-sm">
+                             Get pre-approval from top-tier lenders in under 2 minutes. No credit impact for checking!
+                           </p>
+                        </div>
+                     </div>
+                     
+                     <button 
+                       onClick={onApply}
+                       className="relative w-full md:w-auto overflow-hidden group/btn bg-gradient-to-r from-[#22C55E] to-[#16A34A] hover:from-[#16A34A] hover:to-[#15803D] text-white px-12 py-5 rounded-2xl font-black text-lg transition-all shadow-[0_15px_30px_rgba(22,197,94,0.3)] hover:shadow-[0_20px_40px_rgba(22,197,94,0.4)] active:scale-95 flex items-center justify-center gap-3"
+                     >
+                       Apply Now 
+                       <motion.div
+                         animate={{ x: [0, 5, 0] }}
+                         transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                       >
+                         <ArrowRight className="w-5 h-5" />
+                       </motion.div>
+                       {/* Shine Effect */}
+                       <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shine_1s_ease-in-out_infinite]" />
+                     </button>
+                   </div>
+                 </motion.div>
         </div>
 
         {/* Unique Benefits Grid Section - Compact */}

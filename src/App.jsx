@@ -5,6 +5,8 @@ import Hero from './components/Hero';
 // Lazy loading below-the-fold and modal components securely boosts Lighthouse Scores
 const About = lazy(() => import('./components/About'));
 const Features = lazy(() => import('./components/Features'));
+const Process = lazy(() => import('./components/Process'));
+const BankPartners = lazy(() => import('./components/BankPartners'));
 const Footer = lazy(() => import('./components/Footer'));
 const BackToTop = lazy(() => import('./components/BackToTop'));
 const CheckEligibilityModal = lazy(() => import('./components/CheckEligibilityModal'));
@@ -31,7 +33,9 @@ function App() {
       <Suspense fallback={<div className="min-h-screen bg-white" />}>
         <div className="relative z-10">
           <About />
+          <Process onApply={() => setIsModalOpen(true)} />
           <Features />
+          <BankPartners />
         </div>
         <Footer />
         <BackToTop />
