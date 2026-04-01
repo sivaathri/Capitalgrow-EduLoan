@@ -37,7 +37,15 @@ const BankPartners = () => {
   return (
     <section id="banks" className="py-24 bg-white border-y border-slate-100 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col items-center mb-20 text-center">
+        <style>
+          {`
+            .logo-slider-custom .swiper-wrapper {
+              transition-timing-function: linear !important;
+            }
+          `}
+        </style>
+        
+        <div className="flex flex-col items-center gap-6 mb-16 text-center">
           
           <div className="relative inline-block mb-4">
             {/* Left Sparks */}
@@ -45,7 +53,7 @@ const BankPartners = () => {
               <div className="flex flex-col gap-1.5 -rotate-[20deg]">
                 <div className="w-3.5 h-1 bg-blue-600 rounded-full"></div>
                 <div className="w-3.5 h-1 bg-orange-500 rounded-full"></div>
-                <div className="w-3.5 h-1 bg-pink-500 rounded-full"></div>
+                <div className="w-3.5 h-1 bg-green-500 rounded-full"></div>
               </div>
             </div>
 
@@ -66,18 +74,21 @@ const BankPartners = () => {
 
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={40}
-          slidesPerView={2}
+          spaceBetween={20}
+          slidesPerView={3}
           loop={true}
-          speed={3000}
+          speed={1200}
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
+            pauseOnMouseEnter: false,
           }}
+          allowTouchMove={true}
           breakpoints={{
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
-            1280: { slidesPerView: 6 },
+            480: { slidesPerView: 3.5, spaceBetween: 24 },
+            640: { slidesPerView: 4, spaceBetween: 30 },
+            1024: { slidesPerView: 5, spaceBetween: 40 },
+            1280: { slidesPerView: 6, spaceBetween: 40 },
           }}
           className="logo-slider-custom items-center py-10"
         >
