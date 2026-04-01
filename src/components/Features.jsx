@@ -84,14 +84,20 @@ const Features = () => {
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -8, scale: 1.02 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ 
+                  delay: idx * 0.05,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 15
+                }}
                 className="flex flex-col items-center text-center group cursor-pointer"
               >
-                <div className="w-28 h-28 mb-4 rounded-3xl bg-slate-50 flex items-center justify-center p-2 group-hover:bg-green-50 transition-colors duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] group-hover:-translate-y-2 transition-all">
-                  <img src={service.icon} alt={service.name} className="w-full h-full object-contain" />
+                <div className="w-28 h-28 mb-4 rounded-3xl bg-white border border-slate-100 flex items-center justify-center p-4 transition-colors duration-500 group-hover:bg-sky-50 group-hover:border-sky-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_20px_40px_rgba(14,165,233,0.1)]">
+                  <img src={service.icon} alt={service.name} className="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-500" />
                 </div>
-                <span className="text-sm font-extrabold text-[#1E2D4A] leading-tight max-w-[140px] group-hover:text-green-600 transition-colors">
+                <span className="text-sm font-extrabold text-[#1E2D4A] leading-tight max-w-[140px] group-hover:text-sky-600 transition-colors duration-300">
                   {service.name}
                 </span>
               </motion.div>
@@ -99,41 +105,37 @@ const Features = () => {
           </div>
         </div>
 
-        <div className="text-left mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 pt-12 border-t border-slate-50">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-[#0F172A] leading-tight">
-              Unlock Your <br /> <span className="text-green-600">Global Potential.</span>
-            </h2>
-            <p className="text-slate-500 font-medium text-lg leading-relaxed">
-              We provide specific loan structures designed for the nuances of international education and your career journey.
-            </p>
+        {/* Why Capitall Grow Block */}
+        <div className="mb-24 bg-slate-50 border border-slate-100 rounded-[32px] p-8 md:p-12">
+          <div className="max-w-4xl">
+            <h2 className="text-3xl font-black text-[#1E2D4A] mb-8">Why Capitall Grow?</h2>
+            <div className="space-y-6">
+              {[
+                "Through strong negotiations with leading banks & NBFCs, we ensure the most competitive rates for you.",
+                "Quick and hassle-free loan approvals, so you can focus on your studies without delay.",
+                "We work end-to-end with public / private banks and NBFCs to facilitate the foreign education loan processing and approvals on time."
+              ].map((point, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex gap-4 items-start"
+                >
+                  <div className="w-6 h-6 rounded-full bg-sky-100 flex items-center justify-center flex-shrink-0 mt-1">
+                    <ShieldCheck className="w-4 h-4 text-sky-600" />
+                  </div>
+                  <p className="text-lg text-slate-600 font-medium leading-relaxed italic border-l-2 border-sky-200 pl-4">
+                    {point}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <button className="bg-green-600 text-white px-10 py-4 rounded-xl font-bold shadow-lg hover:bg-green-700 transition-colors">Apply Now</button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cards.map((card, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className={`group bg-white border border-slate-100 p-10 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:border-slate-200 cursor-default`}
-            >
-              <div className="relative z-10">
-                <div className="mb-8 w-16 h-16 rounded-lg flex items-center justify-center bg-slate-50 border border-slate-100 group-hover:scale-110 transition-transform shadow-sm">
-                  {card.icon}
-                </div>
-                <h3 className="text-2xl font-black text-[#0F172A] mb-4 leading-none">
-                  {card.title}
-                </h3>
-                <p className="text-sm font-medium leading-relaxed text-slate-500">
-                  {card.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+       
       </div>
     </section>
   );

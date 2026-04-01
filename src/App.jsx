@@ -25,13 +25,13 @@ function App() {
       <div className="relative z-10">
         <About />
         <Features />
-        <WhyChooseUs />
-        <Benefits />
-        <Countries />
-        <Services />
+       
+       
+        
+       
         <Process />
-        <Testimonials />
-        <Contact />
+      
+        
       </div>
       <Footer />
       <WhatsAppButton />
