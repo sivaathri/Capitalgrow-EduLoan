@@ -35,6 +35,23 @@ const Footer = () => {
               INDIA
             </div>
           </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-[12px] font-black uppercase tracking-[0.5em] text-secondary mb-8 md:mb-12 border-b border-slate-50 pb-4 italic">Contact</h4>
+            <div className="text-primary/40 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic text-left">
+              <a href="tel:+918344232397" className="text-primary font-black italic block mb-1 hover:text-secondary transition-colors underline decoration-accent/20 decoration-2 underline-offset-4 tracking-widest">
+                +91 83442 32397
+              </a>
+              <a href="tel:+919360501932" className="text-primary font-black italic block mb-4 hover:text-secondary transition-colors underline decoration-accent/20 decoration-2 underline-offset-4 tracking-widest">
+                +91 93605 01932
+              </a>
+              <span className="opacity-40 italic block -mb-1">Support Email:</span>
+              <a href="mailto:amarfinserv@gmail.com" className="text-primary font-black italic block hover:text-secondary transition-colors lowercase tracking-normal underline decoration-accent/20 decoration-2 underline-offset-4 text-[13px]">
+                amarfinserv@gmail.com
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 relative z-20">
