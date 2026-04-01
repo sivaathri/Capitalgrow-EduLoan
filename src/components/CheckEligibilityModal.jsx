@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Headphones, GraduationCap, Building2, Wallet, User, Mail, Phone, Globe, Layers, CheckCircle2, ChevronDown, Plane } from 'lucide-react';
+import { X, Headphones, GraduationCap, Building2, Wallet, User, Mail, Phone, Globe, Layers, CheckCircle2, ChevronDown, Plane, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const allCountries = [
   "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", 
@@ -156,14 +157,34 @@ const CustomSelect = ({ options, value, onChange, placeholder, icon: Icon, searc
 
 const CheckEligibilityModal = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedUser, setSubmittedUser] = useState('');
+  const [submittedService, setSubmittedService] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const formRef = useRef();
+
+  const initialFormState = {
+    service: 'University & Admission',
+    name: '',
+    email: '',
+    phone: '',
+    country: '',
+    intent: ''
+  };
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
-      // Reset submission state when modal closes
-      const timer = setTimeout(() => setIsSubmitted(false), 300);
+      // Completely reset everything when modal closes
+      const timer = setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData(initialFormState);
+        setSubmittedUser('');
+        setSubmittedService('');
+        setStatus({ type: "", message: "" });
+      }, 300);
       return () => clearTimeout(timer);
     }
     return () => {
@@ -171,20 +192,51 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
     };
   }, [isOpen]);
 
-  const [formData, setFormData] = useState({
-    service: 'University & Admission',
-    name: '',
-    email: '',
-    phone: '',
-    country: '',
-    intent: ''
-  });
+  const [formData, setFormData] = useState(initialFormState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
-    // Smooth transition to success state
-    setIsSubmitted(true);
+    setIsLoading(true);
+    setStatus({ type: "", message: "" });
+
+    const serviceId = "service_77ra33m";
+    const templateId = "template_zb3pnsc";
+    const publicKey = "uwdLn2z7Y54zXoSg9";
+
+    // We'll prepare a combined message field in case your EmailJS template only uses {{message}}
+    const emailParams = {
+      ...formData,
+      message: `
+        New Lead Submission:
+        -------------------------
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Phone: ${formData.phone}
+        Service Type: ${formData.service}
+        Study Destination: ${formData.country}
+        Looking For: ${formData.intent}
+        -------------------------
+      `
+    };
+
+    emailjs
+      .send(serviceId, templateId, emailParams, publicKey)
+      .then(() => {
+        console.log('API SUCCESS: Data sent to EmailJS:', emailParams);
+        // Cache data for success message then clear inputs
+        setSubmittedUser(formData.name);
+        setSubmittedService(formData.service);
+        setFormData(initialFormState);
+        setIsSubmitted(true);
+      })
+      .catch((err) => {
+        console.error('API ERROR:', err);
+        setStatus({
+          type: "error",
+          message: `Failed to send: ${err.text || err.message || "Please try again."}`,
+        });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleChange = (e) => {
@@ -248,7 +300,12 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                     </div>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="px-6 md:px-10 py-8 relative">
+                  <form ref={formRef} onSubmit={handleSubmit} className="px-6 md:px-10 py-8 relative">
+                    {/* Hidden inputs to sync CustomSelect values for EmailJS sendForm */}
+                    <input type="hidden" name="service" value={formData.service} />
+                    <input type="hidden" name="country" value={formData.country} />
+                    <input type="hidden" name="intent" value={formData.intent} />
+                    
                     <svg className="absolute bottom-0 left-0 w-64 h-48 opacity-20 pointer-events-none -translate-x-10 translate-y-10" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                        <path d="M10 100 Q 50 150 100 120 T 200 80" stroke="#1E2D4A" strokeWidth="2" strokeDasharray="5,5" fill="none"/>
                        <circle cx="10" cy="100" r="4" fill="#1E2D4A"/>
@@ -360,9 +417,9 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                         <label className="block text-[14px] font-bold text-gray-800">I am looking for <span className="text-red-500">*</span></label>
                         <CustomSelect 
                           options={[
-                            { label: "Education Loan", value: "Secured Loan" },
-                            { label: "Personal Loan", value: "Unsecured Loan" },
-                            { label: "Business Loan", value: "Assistance" }
+                            { label: "Education Loan", value: "Education Loan" },
+                            { label: "Personal Loan", value: "Personal Loan" },
+                            { label: "Business Loan", value: "Business Loan" }
                           ]}
                           value={formData.intent}
                           onChange={(val) => setFormData(prev => ({...prev, intent: val}))}
@@ -382,11 +439,26 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                     </div>
 
                     <div className="mt-12 flex flex-col items-center relative z-10">
+                       {status.type === 'error' && (
+                         <div className="mb-4 text-red-600 bg-red-50 px-4 py-2 rounded-lg text-sm font-bold border border-red-100 italic">
+                           ⚠️ {status.message}
+                         </div>
+                       )}
+                       
                        <button 
                          type="submit"
-                         className="bg-gradient-to-r from-[#FBBF24] to-[#F59E0B] hover:from-[#F59E0B] hover:to-[#D97706] text-white px-10 py-3.5 rounded-full font-bold text-[15px] flex items-center justify-center gap-2 transition-all shadow-lg shadow-orange-900/20 w-full md:w-auto md:min-w-[340px]"
+                         disabled={isLoading}
+                         className={`bg-gradient-to-r from-[#FBBF24] to-[#F59E0B] hover:from-[#F59E0B] hover:to-[#D97706] text-white px-10 py-3.5 rounded-full font-bold text-[15px] flex items-center justify-center gap-2 transition-all shadow-lg shadow-orange-900/20 w-full md:w-auto md:min-w-[340px] ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                        >
-                         <Headphones className="w-5 h-5" /> Connect Me With an Expert
+                         {isLoading ? (
+                           <>
+                             <Loader2 className="w-5 h-5 animate-spin" /> Processing Submission...
+                           </>
+                         ) : (
+                           <>
+                             <Headphones className="w-5 h-5" /> Connect Me With an Expert
+                           </>
+                         )}
                        </button>
                        
                        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6 text-[13px] font-bold text-gray-700">
@@ -430,8 +502,8 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
                   <h2 className="text-3xl font-extrabold text-[#111827] mb-4">Submission Successful!</h2>
                   <p className="text-[16px] text-gray-600 max-w-[500px] leading-relaxed mb-10">
-                    Thank you, <span className="font-bold text-[#1E2D4A]">{formData.name}</span>! <br />
-                    We have received your details. One of our expert advisors will call you <span className="font-bold text-[#6B46C1]">shortly</span> to guide you through your {formData.service} journey.
+                    Thank you, <span className="font-bold text-[#1E2D4A]">{submittedUser}</span>! <br />
+                    We have received your details. One of our expert advisors will call you <span className="font-bold text-[#6B46C1]">shortly</span> to guide you through your {submittedService} journey.
                   </p>
 
                   <button 
