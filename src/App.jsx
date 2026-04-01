@@ -34,8 +34,7 @@ function App() {
         <div className="relative z-10">
           <About />
           <Process onApply={() => setIsModalOpen(true)} />
-          <Features />
-          <BankPartners />
+          <Features onApply={() => setIsModalOpen(true)} />
         </div>
         <Footer />
         <BackToTop />
