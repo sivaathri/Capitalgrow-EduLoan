@@ -12,7 +12,7 @@ import incLogo from '../assets/InCred! logo.png';
 import icLogo from '../assets/ICICI Bank.png';
 import pwnLogo from '../assets/Poonawalla Fincorp logo.png';
 import indLogo from '../assets/indian_bank.png';
-import iobLogo from '../assets/iob.png';
+import idfc from '../assets/idfc.png';
 import ruLoansLogo from '../assets/ru loans.png';
 
 const BankPartners = () => {
@@ -28,7 +28,7 @@ const BankPartners = () => {
 
   const row2Banks = [
     { name: "Indian Bank", img: indLogo },
-    { name: "IOB", img: iobLogo },
+    { name: "IDFC First Bank", img: idfc },
     { name: "Avanse", img: avLogo },
     { name: "HDFC Credila", img: hdfcLogo },
     { name: "Bank of Baroda", img: bobLogo }
