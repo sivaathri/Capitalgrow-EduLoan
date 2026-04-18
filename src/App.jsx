@@ -28,7 +28,7 @@ function App() {
       <Suspense fallback={<div className="min-h-screen bg-white" />}>
         <div className="relative z-10">
           <LoanStats onCheckEligibility={scrollToForm} />
-          <About />
+          <BankPartners />
           <Process onApply={scrollToForm} />
           <Features onApply={scrollToForm} />
         </div>
