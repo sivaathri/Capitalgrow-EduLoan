@@ -14,7 +14,8 @@ import {
   ArrowRight,
   Sparkles,
   Plus,
-  Minus
+  Minus,
+  Percent
 } from 'lucide-react';
 import { AnimatePresence } from 'framer-motion';
 
@@ -100,8 +101,12 @@ const Features = ({ onApply }) => {
   ];
 
   return (
-    <section id="features" className="pb-24 pt-0 bg-white relative">
-      <div className="container mx-auto max-w-7xl">
+    <section id="features" className="pb-24 pt-0 bg-white relative overflow-hidden">
+      {/* Decorative Background Patterns */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50/50 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-orange-50/50 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
         <div className="mb-24 px-6 md:px-0">
           {/* This space is now clear as services and process are in Process.jsx */}
         </div>
@@ -129,25 +134,29 @@ const Features = ({ onApply }) => {
                  <p className="text-sm text-slate-500 font-medium">Unlock specialized advantages engineered for your success abroad.</p>
                </div>
 
-               <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-slate-100 border border-slate-100 rounded-2xl overflow-hidden shadow-inner">
-                 {[
-                   { id: 1, label: "No Margin Money Required", icon: <TrendingUp className="w-5 h-5" /> },
-                   { id: 2, label: "Pre-Visa Disbursement", icon: <CalendarClock className="w-5 h-5" /> },
-                   { id: 3, label: "Tax Benefit Under Sec 80-E", icon: <IndianRupee className="w-5 h-5" /> },
-                   { id: 4, label: "No Collateral Required", icon: <ShieldCheck className="w-5 h-5" /> },
-                   { id: 5, label: "100% Finance", icon: <Zap className="w-5 h-5" /> },
-                   { id: 6, label: "Attractive ROI", icon: <Globe2 className="w-5 h-5" /> },
-                 ].map((benefit, idx) => (
-                   <div key={idx} className="bg-white p-5 md:p-6 flex flex-col items-center lg:items-start text-center lg:text-left gap-3 hover:bg-slate-50 transition-colors cursor-default">
-                     <div className="text-blue-600 bg-blue-50 p-2.5 rounded-lg border border-blue-100">
-                       {benefit.icon}
-                     </div>
-                     <span className="text-[13px] font-black text-[#1E2D4A] leading-tight">
-                       {benefit.label}
-                     </span>
-                   </div>
-                 ))}
-               </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    { id: 1, label: "No Margin Money Required", icon: <IndianRupee className="w-5 h-5" />, color: "border-blue-100 bg-blue-50/50 text-blue-600" },
+                    { id: 2, label: "Pre-Visa Disbursement", icon: <CalendarClock className="w-5 h-5" />, color: "border-orange-100 bg-orange-50/50 text-orange-600" },
+                    { id: 3, label: "Tax Benefit Under Sec 80-E", icon: <Percent className="w-5 h-5" />, color: "border-green-100 bg-green-50/50 text-green-600" },
+                    { id: 4, label: "No Collateral Required", icon: <ShieldCheck className="w-5 h-5" />, color: "border-purple-100 bg-purple-50/50 text-purple-600" },
+                    { id: 5, label: "100% Finance", icon: <Zap className="w-5 h-5" />, color: "border-red-100 bg-red-50/50 text-red-600" },
+                    { id: 6, label: "Attractive ROI", icon: <TrendingUp className="w-5 h-5" />, color: "border-cyan-100 bg-cyan-50/50 text-cyan-600" },
+                  ].map((benefit, idx) => (
+                    <motion.div 
+                      key={idx} 
+                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.05)" }}
+                      className="bg-white border border-slate-100 p-5 rounded-2xl flex flex-col items-start gap-4 transition-all group"
+                    >
+                      <div className={`p-2.5 rounded-xl border ${benefit.color} group-hover:scale-110 transition-transform`}>
+                        {benefit.icon}
+                      </div>
+                      <span className="text-[14px] font-black text-[#1E2D4A] leading-tight tracking-tight">
+                        {benefit.label}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
             </div>
           </div>
         </div>
