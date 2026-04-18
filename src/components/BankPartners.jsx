@@ -35,7 +35,7 @@ const BankPartners = () => {
   ];
 
   return (
-    <section id="banks" className="py-20 bg-white">
+    <section id="banks" className="pt-20 pb-0 bg-white">
       <div className="container mx-auto px-4 max-w-[1400px]">
 
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
