@@ -10,6 +10,7 @@ const BankPartners = lazy(() => import('./components/BankPartners'));
 const Footer = lazy(() => import('./components/Footer'));
 const BackToTop = lazy(() => import('./components/BackToTop'));
 const CheckEligibilityModal = lazy(() => import('./components/CheckEligibilityModal'));
+const LoanStats = lazy(() => import('./components/LoanStats'));
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,6 +33,7 @@ function App() {
       {/* Lazy Loaded Below the Fold Elements */}
       <Suspense fallback={<div className="min-h-screen bg-white" />}>
         <div className="relative z-10">
+          <LoanStats onCheckEligibility={() => setIsModalOpen(true)} />
           <About />
           <Process onApply={() => setIsModalOpen(true)} />
           <Features onApply={() => setIsModalOpen(true)} />
