@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, Phone, Globe, Layers, CheckCircle2, Headphones, Building2, Wallet, Loader2, ChevronDown } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -11,11 +11,22 @@ const CustomSelect = ({ options, value, onChange, placeholder, icon: Icon, searc
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const selectedLabel = options.find(opt => (opt.value || opt) === value);
   const displayLabel = selectedLabel ? (selectedLabel.label || selectedLabel) : placeholder;
 
   return (
-    <div className="relative z-40 w-full" ref={dropdownRef}>
+    <div className={`relative ${isOpen ? 'z-50' : 'z-40'} w-full`} ref={dropdownRef}>
       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none z-10">
         <Icon className="w-[18px] h-[18px] text-gray-400" />
       </div>
