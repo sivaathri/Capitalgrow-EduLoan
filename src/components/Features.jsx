@@ -25,7 +25,7 @@ import abroadEducationLoanIcon from '../assets/abroad_education_loan.png';
 import carLoanIcon from '../assets/car_loan.png';
 import insuranceIcon from '../assets/insurance.png';
 import forexIcon from '../assets/forex.png';
-import hero1 from '../assets/hero1.png';
+import hero1 from '../assets/hero22.png';
 
 const Features = ({ onApply }) => {
   const [openIndex, setOpenIndex] = React.useState(null);
