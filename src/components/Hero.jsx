@@ -5,34 +5,31 @@ import heroStudent from '../assets/hero2.webp';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen  flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden">
+    <section className="relative min-h-screen bg-white flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden">
       
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 inset-x-0 h-96  pointer-events-none" />
-      <div className="absolute -left-64 -top-64 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -right-64 -bottom-64 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-96 pointer-events-none" />
+      <div className="absolute -left-64 -top-64 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -right-64 -bottom-64 w-[600px] h-[600px] bg-orange-50/50 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Background Image Container (Subtle and side-placed) */}
-      <div className="absolute top-20 right-0 w-full lg:w-1/2 h-full z-0   pointer-events-none overflow-hidden hidden md:block">
+      {/* Background Image Container */}
+      <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full z-0 pointer-events-none overflow-hidden hidden md:block">
         <img 
           src={heroStudent} 
-          alt="Study Abroad" 
-          className="w-full h-220 object-contain object-right"
+          alt="Student" 
+          className="w-full h-full object-contain object-bottom-right opacity-90"
         />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+      <div className="container ps-0 lg:ps-12 mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row items-end gap-12">
           
-          
-         
-
-          {/* left Side: The Form */}
+          {/* Form Container: Moved to the left and widened slightly */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="w-full lg:w-1/2 max-w-  mx-auto lg:mx-0"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full lg:w-[55%] xl:w-[50%] p-4"
           >
             <LeadForm isHero={true} />
           </motion.div>
