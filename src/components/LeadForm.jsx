@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { User, Mail, Phone, Globe, Layers, CheckCircle2, Headphones, Building2, Wallet, Loader2, ChevronDown } from 'lucide-react';
+import { User, Mail, Phone, Globe, Layers, CheckCircle2, Headphones, Wallet, Loader2, ChevronDown } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const allCountries = [
@@ -72,7 +72,7 @@ const LeadForm = ({ isHero = false }) => {
   const [status, setStatus] = useState({ type: "", message: "" });
 
   const initialFormState = {
-    service: 'University & Admission',
+    service: 'Study Loan & Funding',
     name: '',
     email: '',
     phone: '',
@@ -164,14 +164,16 @@ const LeadForm = ({ isHero = false }) => {
         <p className="text-slate-500 text-xs lg:text-sm font-medium">Get personalized guidance for your global education.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 mb-6 lg:mb-8">   
+      <div className="grid grid-cols-1 gap-3 lg:gap-4 mb-6 lg:mb-8">   
+
+
         <button
           type="button"
           onClick={() => setFormData({ ...formData, service: 'Study Loan & Funding' })}
           className={`text-left flex items-center gap-4 p-4 rounded-2xl border-2 transition-all
              ${formData.service === 'Study Loan & Funding' ? 'bg-[#F5FAFF] border-[#1E2D4A] shadow-sm' : 'bg-white border-gray-100 hover:border-blue-100'}`}
         >
-          <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-full bg-green-50 ml-40 flex items-center justify-center shrink-0">
             <Wallet className="w-6 h-6 text-green-600" />
           </div>
           <div>
