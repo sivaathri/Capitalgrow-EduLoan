@@ -5,7 +5,7 @@ import heroStudent from '../assets/hero2.webp';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-white flex flex-col items-center justify-center pt-28 pb-20 overflow-hidden">
+    <section className="relative min-h-[90vh] bg-white flex flex-col justify-start pt-20 lg:pt-24 pb-12 lg:pb-0 overflow-hidden">
       
       {/* Decorative Background Elements */}
       <div className="absolute top-0 inset-x-0 h-96 pointer-events-none" />
@@ -17,19 +17,19 @@ const Hero = () => {
         <img 
           src={heroStudent} 
           alt="Student" 
-          className="w-full h-full object-contain object-bottom-right opacity-90"
+          className="w-full h-200 object-contain object-right-top mt-10 lg:mt-15 opacity-90 transition-transform duration-700"
         />
       </div>
 
-      <div className="container ps-0 lg:ps-12 mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row items-end gap-12">
+      <div className="container ps-0 lg:ps-12 mx-auto relative z-10 h-full">
+        <div className="flex flex-col lg:flex-row items-end h-full gap-12">
           
-          {/* Form Container: Moved to the left and widened slightly */}
+          {/* Form Container */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-full lg:w-[55%] xl:w-[50%] p-4"
+            className="w-full lg:w-[55%] xl:w-[50%] p-4 lg:mb-12"
           >
             <LeadForm isHero={true} />
           </motion.div>

@@ -158,13 +158,13 @@ const LeadForm = ({ isHero = false }) => {
   }
 
   return (
-    <form id="apply-form" onSubmit={handleSubmit} className={`w-full ${isHero ? 'bg-white/95 backdrop-blur-md rounded-[32px] p-2 md:p-10 border border-white/20' : ''}`}>
-      <div className="flex flex-col items-center text-center mb-10">
-        <h3 className="text-[22px] md:text-2xl font-black text-[#1E2D4A] mb-2">How can we assist you today?<span className="text-red-500">*</span></h3>
-        <p className="text-slate-500 text-sm font-medium">Get personalized guidance for your global education.</p>
+    <form id="apply-form" onSubmit={handleSubmit} className={`w-full ${isHero ? 'bg-white/60 backdrop-blur-xl rounded-[32px] p-4 lg:p-8 border border-white/40 shadow-xl' : ''}`}>
+      <div className="flex flex-col items-center text-center mb-6 lg:mb-8">
+        <h3 className="text-[20px] lg:text-[24px] font-black text-[#1E2D4A] mb-1">How can we assist you today?<span className="text-red-500">*</span></h3>
+        <p className="text-slate-500 text-xs lg:text-sm font-medium">Get personalized guidance for your global education.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 mb-6 lg:mb-8">
         <button
           type="button"
           onClick={() => setFormData({ ...formData, service: 'University & Admission' })}
@@ -196,7 +196,7 @@ const LeadForm = ({ isHero = false }) => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 mb-4 lg:mb-6">
         <div className="space-y-1.5">
           <label className="block text-[13px] font-bold text-gray-700 ml-1">Full Name <span className="text-red-500">*</span></label>
           <div className="relative">
@@ -259,21 +259,21 @@ const LeadForm = ({ isHero = false }) => {
         </div>
       </div>
 
-      <p className="text-[11px] text-gray-400 italic mb-8 px-4 leading-relaxed font-medium">
+      <p className="text-[11px] text-gray-400 italic mb-4 lg:mb-6 px-4 leading-relaxed font-medium">
         By providing your phone number, you consent to be contacted by our team via call, SMS, or WhatsApp. This will override DND/NCPR settings.
       </p>
 
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-col items-center gap-4 lg:gap-6">
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-[#1E2D4A] hover:bg-[#111827] text-white py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-lg active:scale-[0.98] disabled:opacity-70"
+          className="w-full bg-[#1E2D4A] hover:bg-[#111827] text-white py-3 lg:py-4 rounded-xl font-bold text-base lg:text-lg flex items-center justify-center gap-3 transition-all shadow-lg active:scale-[0.98] disabled:opacity-70"
         >
-          {isLoading ? <Loader2 className="w-6 h-6 animate-spin" /> : <Headphones className="w-6 h-6" />}
+          {isLoading ? <Loader2 className="w-6 h-6 animate-spin" /> : <Headphones className="w-5 h-5 lg:w-6 lg:h-6" />}
           Connect Me With an Expert
         </button>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[13px] font-bold text-slate-500">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 lg:gap-x-8 gap-y-2 lg:gap-y-3 text-[12px] lg:text-[13px] font-bold text-slate-500">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-green-500" /> Quick Response
           </div>
