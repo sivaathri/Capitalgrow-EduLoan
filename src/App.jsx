@@ -29,8 +29,9 @@ function App() {
         <div className="relative z-10">
           <LoanStats onCheckEligibility={scrollToForm} />
           <BankPartners />
-          <Process onApply={scrollToForm} />
+         
           <Features onApply={scrollToForm} />
+           <Process onApply={scrollToForm} />
         </div>
         <Footer />
         <BackToTop />

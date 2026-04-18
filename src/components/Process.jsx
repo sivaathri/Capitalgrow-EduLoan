@@ -10,6 +10,7 @@ import carLoanIcon from '../assets/car_loan.png';
 import insuranceIcon from '../assets/insurance.png';
 import forexIcon from '../assets/forex.png';
 
+
 const Process = ({ onApply }) => {
   const steps = [
     { id: "01", title: "Consultation", desc: "Profile evaluation & university selection.", icon: <MessageSquareText className="w-6 h-6" />, color: "text-blue-600 border-blue-100 bg-blue-50" },
@@ -34,6 +35,8 @@ const Process = ({ onApply }) => {
         
         {/* Other Services Section - Now at the Top */}
         <div className="mb-24">
+         
+
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px flex-1 bg-slate-100"></div>
             <h2 className="text-2xl font-bold text-slate-400 uppercase tracking-[0.3em]">Other Services</h2>
