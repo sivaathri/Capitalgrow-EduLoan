@@ -147,7 +147,7 @@ const LeadForm = ({ isHero = false }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`w-full ${isHero ? 'bg-white/95 backdrop-blur-md shadow-2xl rounded-[32px] p-8 md:p-10 border border-white/20' : ''}`}>
+    <form onSubmit={handleSubmit} className={`w-full ${isHero ? 'bg-white/95 backdrop-blur-md rounded-[32px] p-8 md:p-10 border border-white/20' : ''}`}>
       <div className="flex flex-col items-center text-center mb-10">
         <h3 className="text-[22px] md:text-2xl font-black text-[#1E2D4A] mb-2">How can we assist you today?<span className="text-red-500">*</span></h3>
         <p className="text-slate-500 text-sm font-medium">Get personalized guidance for your global education.</p>

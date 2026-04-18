@@ -13,11 +13,11 @@ const Hero = () => {
       <div className="absolute -right-64 -bottom-64 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none" />
 
       {/* Background Image Container (Subtle and side-placed) */}
-      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0   pointer-events-none overflow-hidden hidden md:block">
+      <div className="absolute top-20 right-0 w-full lg:w-1/2 h-full z-0   pointer-events-none overflow-hidden hidden md:block">
         <img 
           src={heroStudent} 
           alt="Study Abroad" 
-          className="w-full h-full object-contain object-right"
+          className="w-full h-220 object-contain object-right"
         />
       </div>
 
