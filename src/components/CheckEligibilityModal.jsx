@@ -4,36 +4,21 @@ import { X, Headphones, GraduationCap, Building2, Wallet, User, Mail, Phone, Glo
 import emailjs from '@emailjs/browser';
 
 const allCountries = [
-  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", 
-  "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", 
-  "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", 
-  "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", 
-  "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", 
-  "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", 
-  "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", 
-  "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", 
-  "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", 
-  "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", 
-  "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", 
-  "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", 
-  "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", 
-  "Korea North", "Korea South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", 
-  "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", 
-  "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", 
-  "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", 
-  "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)", "Namibia", "Nauru", 
-  "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", 
-  "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", 
-  "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", 
-  "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", 
-  "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", 
-  "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", 
-  "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", 
-  "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", 
-  "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", 
-  "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", 
-  "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", 
-  "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+  "USA",
+  "UK",
+  "Canada",
+  "Australia",
+  "Germany",
+  "New Zealand",
+  "Ireland",
+  "France",
+  "Singapore",
+  "UAE",
+  "netherland",
+
+  "Ireland",
+
+  "Other"
 ];
 
 // Beautifully Styled Custom Select Component (Supports Text-box Search acting as Combobox)
@@ -70,12 +55,12 @@ const CustomSelect = ({ options, value, onChange, placeholder, icon: Icon, searc
 
   const filteredOptions = searchable && isOpen
     ? options.filter(opt => {
-        const text = opt.label || opt;
-        // if user hasn't typed anything new, show everything
-        const isMatched = selectedLabel && (selectedLabel.label || selectedLabel) === searchTerm;
-        if (isMatched) return true;
-        return text.toLowerCase().includes(searchTerm.toLowerCase());
-      })
+      const text = opt.label || opt;
+      // if user hasn't typed anything new, show everything
+      const isMatched = selectedLabel && (selectedLabel.label || selectedLabel) === searchTerm;
+      if (isMatched) return true;
+      return text.toLowerCase().includes(searchTerm.toLowerCase());
+    })
     : options;
 
   return (
@@ -83,15 +68,15 @@ const CustomSelect = ({ options, value, onChange, placeholder, icon: Icon, searc
       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none z-10">
         <Icon className="w-[18px] h-[18px] text-gray-400" />
       </div>
-      
+
       {searchable ? (
-        <input 
+        <input
           type="text"
           onFocus={() => setIsOpen(true)}
           onChange={(e) => {
-             setSearchTerm(e.target.value);
-             onChange(''); // clear actual selection when user edits manually
-             if (!isOpen) setIsOpen(true);
+            setSearchTerm(e.target.value);
+            onChange(''); // clear actual selection when user edits manually
+            if (!isOpen) setIsOpen(true);
           }}
           value={searchTerm}
           placeholder={placeholder}
@@ -99,21 +84,21 @@ const CustomSelect = ({ options, value, onChange, placeholder, icon: Icon, searc
           className={`w-full pl-10 pr-10 py-3 bg-white border ${isOpen ? 'border-[#1E2D4A] ring-1 ring-[#1E2D4A]' : 'border-gray-200'} rounded-lg text-[14px] outline-none transition-all cursor-text font-medium text-gray-800 placeholder-gray-400`}
         />
       ) : (
-        <div 
+        <div
           onClick={() => setIsOpen(!isOpen)}
           className={`w-full pl-10 pr-10 py-3 bg-white border ${isOpen ? 'border-[#1E2D4A] ring-1 ring-[#1E2D4A]' : 'border-gray-200'} rounded-lg text-[14px] outline-none transition-all cursor-pointer font-medium flex items-center ${!value ? 'text-gray-400' : 'text-gray-800'}`}
         >
           <span className="truncate flex-1 select-none">{displayLabel}</span>
         </div>
       )}
-      
+
       <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none z-10">
         <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </div>
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.98, y: 5 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: 5 }}
@@ -128,11 +113,11 @@ const CustomSelect = ({ options, value, onChange, placeholder, icon: Icon, searc
                   const label = opt.label || opt;
                   const val = opt.value || opt;
                   return (
-                    <div 
+                    <div
                       key={i}
                       onMouseDown={(e) => {
                         // Prevent focus loss so input doesn't blur before click finishes
-                        e.preventDefault(); 
+                        e.preventDefault();
                       }}
                       onClick={() => {
                         onChange(val);
@@ -166,7 +151,6 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
   const initialFormState = {
     service: 'University & Admission',
     name: '',
-    gender: '',
     email: '',
     phone: '',
     country: 'United States',
@@ -211,7 +195,6 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 👤 STUDENT DETAILS:
 • Name: ${formData.name}
-• Gender: ${formData.gender}
 • Email: ${formData.email}
 • Phone: ${formData.phone}
 
@@ -284,10 +267,10 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                     <button onClick={onClose} aria-label="Close" className="absolute top-6 right-6 p-2 text-gray-400 hover:bg-black/5 hover:text-gray-600 rounded-full transition-colors z-20">
                       <X strokeWidth={1.5} className="w-6 h-6" />
                     </button>
-                    
+
                     <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left z-10 relative">
                       <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center relative shadow-sm border border-white/20 shrink-0">
-                         <GraduationCap className="w-10 h-10 text-white" />
+                        <GraduationCap className="w-10 h-10 text-white" />
                       </div>
 
                       <div>
@@ -307,7 +290,7 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                     <input type="hidden" name="service" value={formData.service} />
                     <input type="hidden" name="country" value={formData.country} />
                     <input type="hidden" name="intent" value={formData.intent} />
-                    
+
                     <div className="flex items-center justify-center mb-6 gap-3 pt-2">
                       <div className="w-8 h-[1.5px] bg-[#1E2D4A] opacity-70"></div>
                       <div className="w-2 h-2 rotate-45 bg-[#1E2D4A]"></div>
@@ -317,35 +300,35 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                       <button 
-                         type="button" 
-                         onClick={() => setFormData({...formData, service: 'University & Admission'})}
-                         className={`text-left flex items-center gap-4 p-3 rounded-xl border-[1.5px] transition-all
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, service: 'University & Admission' })}
+                        className={`text-left flex items-center gap-4 p-3 rounded-xl border-[1.5px] transition-all
                            ${formData.service === 'University & Admission' ? 'bg-[#F5FAFF] border-[#1E2D4A] shadow-sm' : 'bg-white border-gray-100 hover:border-blue-100'}`}
-                       >
-                         <div className="w-10 h-10 rounded-full bg-[#EAF4FF] flex items-center justify-center shrink-0">
-                           <Building2 className="w-5 h-5 text-[#1E2D4A] fill-[#1E2D4A]/20" />
-                         </div>
-                         <div>
-                           <h4 className="text-[15px] font-bold text-gray-900 leading-tight">University & Admission</h4>
-                           <p className="text-[11px] text-gray-400 font-medium tracking-tight">Applications, SOPs & more.</p>
-                         </div>
-                       </button>
+                      >
+                        <div className="w-10 h-10 rounded-full bg-[#EAF4FF] flex items-center justify-center shrink-0">
+                          <Building2 className="w-5 h-5 text-[#1E2D4A] fill-[#1E2D4A]/20" />
+                        </div>
+                        <div>
+                          <h4 className="text-[15px] font-bold text-gray-900 leading-tight">University & Admission</h4>
+                          <p className="text-[11px] text-gray-400 font-medium tracking-tight">Applications, SOPs & more.</p>
+                        </div>
+                      </button>
 
-                       <button 
-                         type="button" 
-                         onClick={() => setFormData({...formData, service: 'Study Loan & Funding'})}
-                         className={`text-left flex items-center gap-4 p-3 rounded-xl border-[1.5px] transition-all
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, service: 'Study Loan & Funding' })}
+                        className={`text-left flex items-center gap-4 p-3 rounded-xl border-[1.5px] transition-all
                            ${formData.service === 'Study Loan & Funding' ? 'bg-[#F5FAFF] border-[#1E2D4A] shadow-sm' : 'bg-white border-gray-100 hover:border-blue-100'}`}
-                       >
-                         <div className="w-10 h-10 rounded-full bg-[#EEF8E8] flex items-center justify-center shrink-0">
-                           <Wallet className="w-5 h-5 text-[#22C55E] fill-[#22C55E]/20" />
-                         </div>
-                         <div>
-                           <h4 className="text-[15px] font-bold text-gray-900 leading-tight">Study Loan & Funding</h4>
-                           <p className="text-[11px] text-gray-400 font-medium tracking-tight">Best loan options & support.</p>
-                         </div>
-                       </button>
+                      >
+                        <div className="w-10 h-10 rounded-full bg-[#EEF8E8] flex items-center justify-center shrink-0">
+                          <Wallet className="w-5 h-5 text-[#22C55E] fill-[#22C55E]/20" />
+                        </div>
+                        <div>
+                          <h4 className="text-[15px] font-bold text-gray-900 leading-tight">Study Loan & Funding</h4>
+                          <p className="text-[11px] text-gray-400 font-medium tracking-tight">Best loan options & support.</p>
+                        </div>
+                      </button>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 relative z-30">
@@ -355,7 +338,7 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                           <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                             <User className="w-[16px] h-[16px] text-gray-400" />
                           </div>
-                          <input 
+                          <input
                             id="name-input" type="text" name="name" required
                             placeholder="Example: Rahul Sharma"
                             value={formData.name} onChange={handleChange}
@@ -364,16 +347,7 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                         </div>
                       </div>
 
-                      <div className="space-y-1">
-                        <label className="block text-[13px] font-extrabold text-gray-700 ml-1">Gender <span className="text-red-500">*</span></label>
-                        <CustomSelect 
-                          options={['Male', 'Female', 'Other']}
-                          value={formData.gender}
-                          onChange={(val) => setFormData({...formData, gender: val})}
-                          placeholder="Select Gender"
-                          icon={User}
-                        />
-                      </div>
+
 
                       <div className="space-y-1">
                         <label htmlFor="email-input" className="block text-[13px] font-extrabold text-gray-700 ml-1">Email Address <span className="text-red-500">*</span></label>
@@ -381,7 +355,7 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                           <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                             <Mail className="w-[16px] h-[16px] text-gray-400" />
                           </div>
-                          <input 
+                          <input
                             id="email-input" type="email" name="email" required
                             placeholder="Example: rahul@example.com"
                             value={formData.email} onChange={handleChange}
@@ -399,7 +373,7 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                           <div className="absolute inset-y-0 left-[34px] flex items-center text-[12px] text-gray-800 font-bold border-r border-gray-200 pr-2 my-[10px]">
                             +91 <ChevronDown className="w-[12px] h-[12px] text-gray-400 ml-[2px]" />
                           </div>
-                          <input 
+                          <input
                             id="phone-input" type="tel" name="phone" required
                             placeholder="Enter 10-digit number"
                             value={formData.phone} onChange={handleChange}
@@ -410,77 +384,77 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
 
                       <div className="space-y-1">
                         <label className="block text-[13px] font-extrabold text-gray-700 ml-1">Preferred Destination <span className="text-red-500">*</span></label>
-                        <CustomSelect 
+                        <CustomSelect
                           options={allCountries}
                           value={formData.country}
-                          onChange={(val) => setFormData(prev => ({...prev, country: val}))}
-                           placeholder="Choose country"
-                           icon={Globe}
-                           searchable={true}
-                         />
-                       </div>
+                          onChange={(val) => setFormData(prev => ({ ...prev, country: val }))}
+                          placeholder="Choose country"
+                          icon={Globe}
+                          searchable={true}
+                        />
+                      </div>
 
-                       <div className="space-y-1 relative">
-                         <label className="block text-[13px] font-extrabold text-gray-700 ml-1">I am looking for <span className="text-red-500">*</span></label>
-                         <CustomSelect 
-                           options={[
-                             { label: "Education Loan", value: "Education Loan" },
-                             { label: "Personal Loan", value: "Personal Loan" },
-                             { label: "Business Loan", value: "Business Loan" }
-                           ]}
-                           value={formData.intent}
-                           onChange={(val) => setFormData(prev => ({...prev, intent: val}))}
-                           placeholder="Select an option"
-                           icon={Layers}
-                         />
-                       </div>
+                      <div className="space-y-1 relative">
+                        <label className="block text-[13px] font-extrabold text-gray-700 ml-1">I am looking for <span className="text-red-500">*</span></label>
+                        <CustomSelect
+                          options={[
+                            { label: "Education Loan", value: "Education Loan" },
+                            { label: "Personal Loan", value: "Personal Loan" },
+                            { label: "Business Loan", value: "Business Loan" }
+                          ]}
+                          value={formData.intent}
+                          onChange={(val) => setFormData(prev => ({ ...prev, intent: val }))}
+                          placeholder="Select an option"
+                          icon={Layers}
+                        />
+                      </div>
                     </div>
 
                     <div className="mt-5 lg:mt-6">
-                       <div className="flex gap-3 items-start bg-slate-50/80 p-3 rounded-lg border border-slate-100">
-                          <div className="mt-0.5 rounded-full flex items-center justify-center w-[16px] h-[16px] shrink-0 bg-[#22C55E]">
-                             <CheckCircle2 className="w-[12px] h-[12px] text-white" strokeWidth={3} />
-                          </div>
-                          <p className="text-[11px] text-gray-500 leading-relaxed font-semibold italic">
-                             By providing your phone number, you consent to be contacted by our team via call, SMS, or WhatsApp. This will override DND/NCPR settings.
-                          </p>
-                       </div>
+                      <div className="flex gap-3 items-start bg-slate-50/80 p-3 rounded-lg border border-slate-100">
+                        <div className="mt-0.5 rounded-full flex items-center justify-center w-[16px] h-[16px] shrink-0 bg-[#22C55E]">
+                          <CheckCircle2 className="w-[12px] h-[12px] text-white" strokeWidth={3} />
+                        </div>
+                        <p className="text-[11px] text-gray-500 leading-relaxed font-semibold italic">
+                          By providing your phone number, you consent to be contacted by our team via call, SMS, or WhatsApp. This will override DND/NCPR settings.
+                        </p>
+                      </div>
                     </div>
 
                     <div className="mt-8 flex flex-col items-center relative z-10">
-                       {status.type === 'error' && (
-                         <div className="mb-4 text-red-600 bg-red-50 px-4 py-2 rounded-lg text-sm font-bold border border-red-100 italic">
-                           ⚠️ {status.message}
-                         </div>
-                       )}
-                       
-                       <button 
-                         type="submit"
-                         disabled={isLoading}
-                         className={`bg-gradient-to-r from-[#FBBF24] to-[#F59E0B] hover:from-[#F59E0B] hover:to-[#D97706] text-white px-10 py-3.5 rounded-full font-bold text-[15px] flex items-center justify-center gap-2 transition-all shadow-lg shadow-orange-900/20 w-full md:w-auto md:min-w-[340px] ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
-                       >
-                         {isLoading ? (
-                           <>
-                             <Loader2 className="w-5 h-5 animate-spin" /> Processing Submission...
-                           </>
-                         ) : (
-                           <>
-                             <Headphones className="w-5 h-5" /> Connect Me With an Expert
-                           </>
-                         )}
-                       </button>
-                       
-                       <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6 text-[13px] font-bold text-gray-700">
-                          <div className="flex items-center gap-1.5">
-                             <CheckCircle2 className="w-[18px] h-[18px] text-[#22C55E]" /> 100% Free Guidance
-                          </div>
-                          <div className="flex items-center gap-1.5">
-                             <CheckCircle2 className="w-[18px] h-[18px] text-[#22C55E]" /> Quick Response
-                          </div>
-                          <div className="flex items-center gap-1.5">
-                             <CheckCircle2 className="w-[18px] h-[18px] text-[#22C55E]" /> Trusted by Thousands of Students
-                          </div>
-                       </div>
+                      {status.type === 'error' && (
+                        <div className="mb-4 text-red-600 bg-red-50 px-4 py-2 rounded-lg text-sm font-bold border border-red-100 italic">
+                          ⚠️ {status.message}
+                        </div>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={isLoading}
+                        className={`bg-gradient-to-r from-[#FBBF24] to-[#F59E0B] hover:from-[#F59E0B] hover:to-[#D97706] text-white px-10 py-3.5 rounded-full font-bold text-[15px] flex items-center justify-center gap-2 transition-all shadow-lg shadow-orange-900/20 w-full md:w-auto md:min-w-[340px] ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                      >
+                        {isLoading ? (
+                          <>
+                            <Loader2 className="w-5 h-5 animate-spin" /> Processing Submission...
+                          </>
+                        ) : (
+                          <>
+                            <Headphones className="w-5 h-5" /> Connect Me With an Expert
+                          </>
+                        )}
+                      </button>
+
+                      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6 text-[13px] font-bold text-gray-700">
+                        {/* <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-[18px] h-[18px] text-[#22C55E]" /> 100% Free Guidance
+                        </div> */}
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-[18px] h-[18px] text-[#22C55E]" /> Quick Response
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="w-[18px] h-[18px] text-[#22C55E]" /> Trusted by Thousands of Students
+                        </div>
+                      </div>
                     </div>
                   </form>
                 </motion.div>
@@ -494,37 +468,37 @@ const CheckEligibilityModal = ({ isOpen, onClose }) => {
                   className="flex flex-col items-center justify-center text-center px-8 py-20 min-h-[500px]"
                 >
                   <div className="relative mb-8">
-                     <motion.div 
-                       initial={{ scale: 0 }}
-                       animate={{ scale: 1 }}
-                       transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                       className="w-24 h-24 bg-[#22C55E]/10 rounded-full flex items-center justify-center"
-                     >
-                        <CheckCircle2 className="w-12 h-12 text-[#22C55E]" strokeWidth={2.5} />
-                     </motion.div>
-                     <motion.div 
-                       animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0, 0.3] }}
-                       transition={{ duration: 2, repeat: Infinity }}
-                       className="absolute inset-0 bg-[#22C55E]/20 rounded-full scale-110"
-                     />
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                      className="w-24 h-24 bg-[#22C55E]/10 rounded-full flex items-center justify-center"
+                    >
+                      <CheckCircle2 className="w-12 h-12 text-[#22C55E]" strokeWidth={2.5} />
+                    </motion.div>
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0, 0.3] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="absolute inset-0 bg-[#22C55E]/20 rounded-full scale-110"
+                    />
                   </div>
 
-                   <h2 className="text-3xl font-extrabold text-[#111827] mb-4">Submission Successful!</h2>
-                   <p className="text-[16px] text-gray-600 max-w-[500px] leading-relaxed mb-10">
-                     Thank you, <span className="font-bold text-[#1E2D4A]">{submittedUser}</span>! <br />
-                     We have received your details. One of our expert advisors will call you <span className="font-bold text-[#6B46C1]">shortly</span> to guide you through your {submittedService} journey.
-                   </p>
+                  <h2 className="text-3xl font-extrabold text-[#111827] mb-4">Submission Successful!</h2>
+                  <p className="text-[16px] text-gray-600 max-w-[500px] leading-relaxed mb-10">
+                    Thank you, <span className="font-bold text-[#1E2D4A]">{submittedUser}</span>! <br />
+                    We have received your details. One of our expert advisors will call you <span className="font-bold text-[#6B46C1]">shortly</span> to guide you through your {submittedService} journey.
+                  </p>
 
-                   <button 
-                     onClick={onClose}
-                     className="bg-[#1E2D4A] hover:bg-[#111827] text-white px-10 py-3 rounded-full font-bold text-[14px] transition-all shadow-md"
-                   >
-                     Got it, Thanks!
-                   </button>
+                  <button
+                    onClick={onClose}
+                    className="bg-[#1E2D4A] hover:bg-[#111827] text-white px-10 py-3 rounded-full font-bold text-[14px] transition-all shadow-md"
+                  >
+                    Got it, Thanks!
+                  </button>
 
-                   <div className="mt-12 flex items-center gap-2 text-gray-400 font-medium text-[13px]">
-                      <Phone className="w-4 h-4" /> 24/7 Priority Candidate Support
-                   </div>
+                  <div className="mt-12 flex items-center gap-2 text-gray-400 font-medium text-[13px]">
+                    <Phone className="w-4 h-4" /> 24/7 Priority Candidate Support
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
