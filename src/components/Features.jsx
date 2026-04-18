@@ -40,12 +40,12 @@ const Features = ({ onApply }) => {
 
   const loanFeatures = [
     { title: "Loan Coverage", content: "Covers tuition fees, living expenses, travel costs, study materials, and insurance." },
-    { title: "Loan Amount", content: "Usually ranges from 20 lakhs to crore depending on the lender and course." },
+    { title: "Loan Amount", content: "Usually ranges from 20 lakhs to 1.25 depending on the lender and course." },
     { title: "Collateral Requirement", content: "Can be secured (with property, FD, etc.) or unsecured (no collateral, but with co-applicant)." },
-    { title: "Interest Rates", content: "Floating interest, typically 9% to 13% per annum depending on bank/NBFC." },
+    { title: "Interest Rates", content: "Floating interest, typically 8.5% to 12.87% per annum depending on bank/NBFC." },
     { title: "Moratorium Period", content: "No repayment during the study period + (6-12 months) after course completion." },
     { title: "Repayment Tenure", content: "Flexible, usually 7-12 years after moratorium." },
-    { title: "Processing Time", content: "Public banks take 2-3 weeks; private lenders may approve in 3-7 working days." },
+    { title: "Processing Time", content: "Public banks take 2-3 weeks; private lenders may approve in 7-10 working days." },
     { title: "Currency Disbursal", content: "Disbursed in INR or foreign currency directly to university." },
     { title: "Prepayment & Foreclosure", content: "Most banks allow prepayment / foreclosure with no penalty." },
     { title: "Coverage of Countries", content: "Majorly USA, UK, France, Canada, Australia, New Zealand, Germany, Ireland, Singapore, etc." }
