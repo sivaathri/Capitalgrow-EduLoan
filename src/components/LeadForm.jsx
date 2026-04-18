@@ -164,22 +164,7 @@ const LeadForm = ({ isHero = false }) => {
         <p className="text-slate-500 text-xs lg:text-sm font-medium">Get personalized guidance for your global education.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 mb-6 lg:mb-8">
-        <button
-          type="button"
-          onClick={() => setFormData({ ...formData, service: 'University & Admission' })}
-          className={`text-left flex items-center gap-4 p-4 rounded-2xl border-2 transition-all
-             ${formData.service === 'University & Admission' ? 'bg-[#F5FAFF] border-[#1E2D4A] shadow-sm' : 'bg-white border-gray-100 hover:border-blue-100'}`}
-        >
-          <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-            <Building2 className="w-6 h-6 text-[#1E2D4A]" />
-          </div>
-          <div>
-            <h4 className="text-[15px] font-bold text-gray-900">University & Admission</h4>
-            <p className="text-[11px] text-gray-400 font-medium">Applications, SOPs & more.</p>
-          </div>
-        </button>
-
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4 mb-6 lg:mb-8">   
         <button
           type="button"
           onClick={() => setFormData({ ...formData, service: 'Study Loan & Funding' })}
