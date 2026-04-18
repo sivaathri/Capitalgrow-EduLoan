@@ -72,7 +72,7 @@ const LoanStats = ({ onCheckEligibility }) => {
                 { 
                   icon: <Landmark className="w-5 h-5 text-white" />, 
                   title: "Loan Amount",
-                  desc: "Up to ₹15 Crore",
+                  desc: "Up to ₹1.25 Crore",
                   sub: "Collateral-Free",
                   color: "bg-[#5DA7DB]"
                 },
@@ -89,14 +89,8 @@ const LoanStats = ({ onCheckEligibility }) => {
                   desc: "Apply to 20+",
                   sub: "Banks in 2 Minutes",
                   color: "bg-[#5DA7DB]"
-                },
-                { 
-                  icon: <Wallet className="w-5 h-5 text-white" />, 
-                  title: "Max Savings",
-                  desc: "Save up to",
-                  sub: "₹15,00,000",
-                  color: "bg-[#F8B036]"
                 }
+                
               ].map((card, i) => (
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
