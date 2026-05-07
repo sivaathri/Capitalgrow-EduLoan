@@ -165,7 +165,7 @@ const Process = ({ onApply }) => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="relative pt-20">
+        {/* <div className="relative pt-20">
           <div className="absolute bottom-0 left-0 right-0 h-[520px] lg:h-[400px] bg-gradient-to-r from-[#8E7BBF] to-[#D5D1E8] rounded-tl-[100px] z-0" />
           
           <div className="relative z-10">
@@ -245,7 +245,7 @@ const Process = ({ onApply }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
