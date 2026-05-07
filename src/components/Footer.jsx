@@ -62,11 +62,11 @@ const Footer = () => {
           <div className="text-[11px] font-medium tracking-tight text-slate-400">
          © 2026 Pondy IT Solutions Made with | All rights reserved 💚
           </div>
-          <div className="flex gap-4 text-[11px] font-medium tracking-tight text-slate-400">
+          {/* <div className="flex gap-4 text-[11px] font-medium tracking-tight text-slate-400">
             <a href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</a>
             <span className="text-slate-200">|</span>
             <a href="#" className="hover:text-blue-600 transition-colors">Terms & Conditions</a>
-          </div>
+          </div> */}
         </div>
       </div>
       
