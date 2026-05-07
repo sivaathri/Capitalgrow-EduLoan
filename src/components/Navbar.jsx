@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.png';
+import logo from '../assets/re1 (2).png';
 
 const Navbar = ({ onCheckEligibility }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,13 +24,17 @@ const Navbar = ({ onCheckEligibility }) => {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex items-center gap-3 cursor-pointer shrink-0"
+          className="relative flex items-center cursor-pointer shrink-0 py-2"
         >
           <img 
             src={logo} 
             alt="Capital Grow" 
-            className="h-18 md:h-22 w-auto object-contain" 
+            className="h-18 md:h-20 w-auto object-contain" 
           />
+          <span className="absolute bottom-5 left-20 text-[10px] md:text-[9px] font-bold italic tracking-tighter whitespace-nowrap">
+            <span className="text-[#002D9C]">Empowering Dreams, </span>
+            <span className="text-[#FF6B00]">Financing Future.</span>
+          </span>
         </motion.div>
       </div>
     </nav>

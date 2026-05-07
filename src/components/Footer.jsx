@@ -1,7 +1,7 @@
 import React from 'react';
 import { Rocket, Share2, Globe, MessageSquare } from 'lucide-react';
 import footerBg from '../assets/footer.webp';
-import logo from '../assets/logofooter.png';
+import logo from '../assets/re1 (2).png';
 
 const Footer = () => {
   return (
@@ -10,19 +10,23 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-20 mb-20 md:mb-32">
           {/* Brand Info */}
           <div className="max-w-md">
-            <div className="mb-10 block cursor-pointer">
-              <img src={logo} alt="Capital Grow Logo" className="h-36  object-contain" />
+            <div className="mb-10 relative block cursor-pointer">
+              <img src={logo} alt="Capital Grow Logo" className="h-25 object-contain" />
+              <span className="absolute bottom-3 left-25 text-[11px] md:text-[11px] font-bold italic tracking-tighter whitespace-nowrap">
+                <span className="text-[#002D9C]">Empowering Dreams, </span>
+                <span className="text-[#FF6B00]">Financing Future.</span>
+              </span>
             </div>
             <p className="text-lg text-slate-400 leading-relaxed font-heading italic tracking-tight mb-12">
               Empowering the next generation of global leaders with customized financial solutions for international studies.
             </p>
-            <div className="flex gap-6">
+            {/* <div className="flex gap-6">
                {[Share2, Globe, MessageSquare].map((Icon, i) => (
                  <a key={i} href="#" className="w-14 h-14 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-slate-300 hover:bg-secondary hover:text-white hover:scale-110 hover:shadow-2xl hover:shadow-secondary/30 transition-all duration-500 shadow-xl shadow-slate-200/50">
                    <Icon className="w-6 h-6" />
                  </a>
                ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Location */}
