@@ -170,7 +170,7 @@ const LeadForm = ({ isHero = false }) => {
         <button
           type="button"
           onClick={() => setFormData({ ...formData, service: 'Study Loan & Funding' })}
-          className={`flex items-center justify-center sm:justify-start gap-4 p-4 rounded-2xl border-2 transition-all text-center sm:text-left
+          className={`flex items-center justify-center gap-4 p-4 rounded-2xl border-2 transition-all text-center
              ${formData.service === 'Study Loan & Funding' ? 'bg-[#F5FAFF] border-[#1E2D4A] shadow-sm' : 'bg-white border-gray-100 hover:border-blue-100'}`}
         >
           <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center shrink-0">
