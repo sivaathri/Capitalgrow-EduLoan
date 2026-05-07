@@ -1,7 +1,7 @@
 import React from 'react';
 import { Rocket, Share2, Globe, MessageSquare } from 'lucide-react';
 import footerBg from '../assets/footer.webp';
-import logo from '../assets/footerlogo.png';
+import logo from '../assets/logofooter.png';
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="max-w-md">
             <div className="mb-10 block cursor-pointer">
-              <img src={logo} alt="Capital Grow Logo" className="h-16 w-auto object-contain" />
+              <img src={logo} alt="Capital Grow Logo" className="h-36  object-contain" />
             </div>
             <p className="text-lg text-slate-400 leading-relaxed font-heading italic tracking-tight mb-12">
               Empowering the next generation of global leaders with customized financial solutions for international studies.

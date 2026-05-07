@@ -29,7 +29,7 @@ const Navbar = ({ onCheckEligibility }) => {
           <img 
             src={logo} 
             alt="Capital Grow" 
-            className="h-16 md:h-20 w-auto object-contain" 
+            className="h-18 md:h-22 w-auto object-contain" 
           />
         </motion.div>
       </div>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import sbiLogo from "../assets/sbi.png";
 import bobLogo from "../assets/bob.png";
 import indianBankLogo from "../assets/indian_bank.png";
-import iobLogo from "../assets/iob.png";
+// import iobLogo from "../assets/iob.png";
 import credilaLogo from "../assets/credila.png";
 import axisLogo from "../assets/AxisBank logo.png";
 import iciciLogo from "../assets/ICICI Bank.png";
