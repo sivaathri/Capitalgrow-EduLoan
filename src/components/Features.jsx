@@ -44,7 +44,7 @@ const Features = ({ onApply }) => {
     { title: "Collateral Requirement", content: "Can be secured (with property, FD, etc.) or unsecured (no collateral, but with co-applicant)." },
     { title: "Interest Rates", content: "Floating interest, typically 8.5% to 12.87% per annum depending on bank/NBFC." },
     { title: "Moratorium Period", content: "No repayment during the study period + (6 to 12 months) after course completion." },
-    { title: "Repayment Tenure", content: "Flexible, usually 7 to 12 years after moratorium." },
+    { title: "Repayment Tenure", content: "Flexible, usually 7 to 13 years after moratorium." },
     { title: "Processing Time", content: "Public and private banks lenders may approve in 7 to 10 working days." },
     { title: "Currency Disbursal", content: "Disbursed in INR or foreign currency directly to university." },
     { title: "Prepayment & Foreclosure", content: "Most banks allow prepayment / foreclosure with no penalty." },
