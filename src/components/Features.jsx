@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ShieldCheck, 
-  IndianRupee, 
-  TrendingUp, 
-  CalendarClock, 
-  Zap, 
+import {
+  ShieldCheck,
+  IndianRupee,
+  TrendingUp,
+  CalendarClock,
+  Zap,
   Globe2,
   MessageSquareText,
   FileStack,
@@ -43,9 +43,9 @@ const Features = ({ onApply }) => {
     { title: "Loan Amount", content: "Usually ranges from 20 lakhs to 1.25 depending on the lender and course." },
     { title: "Collateral Requirement", content: "Can be secured (with property, FD, etc.) or unsecured (no collateral, but with co-applicant)." },
     { title: "Interest Rates", content: "Floating interest, typically 8.5% to 12.87% per annum depending on bank/NBFC." },
-    { title: "Moratorium Period", content: "No repayment during the study period + (6-12 months) after course completion." },
-    { title: "Repayment Tenure", content: "Flexible, usually 7-12 years after moratorium." },
-    { title: "Processing Time", content: "Public banks take 2-3 weeks; private lenders may approve in 7-10 working days." },
+    { title: "Moratorium Period", content: "No repayment during the study period + (6 to 12 months) after course completion." },
+    { title: "Repayment Tenure", content: "Flexible, usually 7 to 12 years after moratorium." },
+    { title: "Processing Time", content: "Public and private banks lenders may approve in 7 to 10 working days." },
     { title: "Currency Disbursal", content: "Disbursed in INR or foreign currency directly to university." },
     { title: "Prepayment & Foreclosure", content: "Most banks allow prepayment / foreclosure with no penalty." },
     { title: "Coverage of Countries", content: "Majorly USA, UK, France, Canada, Australia, New Zealand, Germany, Ireland, Singapore, etc." }
@@ -116,7 +116,7 @@ const Features = ({ onApply }) => {
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-8 md:px-14">
             {/* Left Image Side - Refined */}
             <div className="lg:w-5/12">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -129,34 +129,34 @@ const Features = ({ onApply }) => {
 
             {/* Right Content Side - Optimized */}
             <div className="lg:w-7/12">
-               <div className="mb-6 text-center lg:text-left">
-                 <h2 className="text-2xl md:text-3xl font-black text-[#1E2D4A] mb-3">Unique Benefits of <span className="text-blue-600">Education Loan</span></h2>
-                 <p className="text-sm text-slate-500 font-medium">Unlock specialized advantages engineered for your success abroad.</p>
-               </div>
+              <div className="mb-6 text-center lg:text-left">
+                <h2 className="text-2xl md:text-3xl font-black text-[#1E2D4A] mb-3">Unique Benefits of <span className="text-blue-600">Education Loan</span></h2>
+                <p className="text-sm text-slate-500 font-medium">Unlock specialized advantages engineered for your success abroad.</p>
+              </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[
-                    { id: 1, label: "No Margin Money Required", icon: <IndianRupee className="w-5 h-5" />, color: "border-blue-100 bg-blue-50/50 text-blue-600" },
-                    { id: 2, label: "Pre-Visa Disbursement", icon: <CalendarClock className="w-5 h-5" />, color: "border-orange-100 bg-orange-50/50 text-orange-600" },
-                    { id: 3, label: "Tax Benefit Under Sec 80-E", icon: <Percent className="w-5 h-5" />, color: "border-green-100 bg-green-50/50 text-green-600" },
-                    { id: 4, label: "No Collateral Required", icon: <ShieldCheck className="w-5 h-5" />, color: "border-purple-100 bg-purple-50/50 text-purple-600" },
-                    { id: 5, label: "100% Finance", icon: <Zap className="w-5 h-5" />, color: "border-red-100 bg-red-50/50 text-red-600" },
-                    { id: 6, label: "Attractive ROI", icon: <TrendingUp className="w-5 h-5" />, color: "border-cyan-100 bg-cyan-50/50 text-cyan-600" },
-                  ].map((benefit, idx) => (
-                    <motion.div 
-                      key={idx} 
-                      whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.05)" }}
-                      className="bg-white border border-slate-100 p-5 rounded-2xl flex flex-col items-start gap-4 transition-all group"
-                    >
-                      <div className={`p-2.5 rounded-xl border ${benefit.color} group-hover:scale-110 transition-transform`}>
-                        {benefit.icon}
-                      </div>
-                      <span className="text-[14px] font-black text-[#1E2D4A] leading-tight tracking-tight">
-                        {benefit.label}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { id: 1, label: "No Margin Money Required", icon: <IndianRupee className="w-5 h-5" />, color: "border-blue-100 bg-blue-50/50 text-blue-600" },
+                  { id: 2, label: "Pre-Visa Disbursement", icon: <CalendarClock className="w-5 h-5" />, color: "border-orange-100 bg-orange-50/50 text-orange-600" },
+                  { id: 3, label: "Tax Benefit Under Sec 80-E", icon: <Percent className="w-5 h-5" />, color: "border-green-100 bg-green-50/50 text-green-600" },
+                  { id: 4, label: "No Collateral Required", icon: <ShieldCheck className="w-5 h-5" />, color: "border-purple-100 bg-purple-50/50 text-purple-600" },
+                  { id: 5, label: "100% Finance", icon: <Zap className="w-5 h-5" />, color: "border-red-100 bg-red-50/50 text-red-600" },
+                  { id: 6, label: "Attractive ROI", icon: <TrendingUp className="w-5 h-5" />, color: "border-cyan-100 bg-cyan-50/50 text-cyan-600" },
+                ].map((benefit, idx) => (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.05)" }}
+                    className="bg-white border border-slate-100 p-5 rounded-2xl flex flex-col items-start gap-4 transition-all group"
+                  >
+                    <div className={`p-2.5 rounded-xl border ${benefit.color} group-hover:scale-110 transition-transform`}>
+                      {benefit.icon}
+                    </div>
+                    <span className="text-[14px] font-black text-[#1E2D4A] leading-tight tracking-tight">
+                      {benefit.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -164,14 +164,14 @@ const Features = ({ onApply }) => {
         {/* Why Capitall Grow Block */}
         <div className="mb-24 bg-slate-50 border border-slate-100 rounded-[32px] p-8 md:p-12">
           <div className="max-w-4xl mx-auto md:mx-0">
-            <h2 className="text-3xl font-black text-[#1E2D4A] mb-8">Why Capitall Grow?</h2>
+            <h2 className="text-3xl font-black text-[#1E2D4A] mb-8">Why Capital Grow?</h2>
             <div className="space-y-6">
               {[
                 "Through strong negotiations with leading banks & NBFCs, we ensure the most competitive rates for you.",
                 "Quick and hassle-free loan approvals, so you can focus on your studies without delay.",
                 "We work end-to-end with public / private banks and NBFCs to facilitate the foreign education loan processing and approvals on time."
               ].map((point, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -199,8 +199,8 @@ const Features = ({ onApply }) => {
 
           <div className="space-y-8">
             {loanFeatures.map((feature, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}

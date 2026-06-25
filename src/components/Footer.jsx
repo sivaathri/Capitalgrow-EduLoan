@@ -35,7 +35,7 @@ const Footer = () => {
             <div className="text-primary/40 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic text-left">
               <span className="text-primary font-black italic block mb-2 underline decoration-accent/20 decoration-2 underline-offset-4 pointer-events-none">PUDUCHERRY HEADQUARTER</span>
               #1, 4th Cross, Anna Nagar East<br />
-              PUDUCHERRY, 605001<br />
+              PUDUCHERRY,605005<br />
               INDIA
             </div>
           </div>
