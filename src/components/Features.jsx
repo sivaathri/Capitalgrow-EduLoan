@@ -41,7 +41,7 @@ const Features = ({ onApply }) => {
   const loanFeatures = [
     { title: "Loan Coverage", content: "Covers tuition fees, living expenses, travel costs, study materials, and insurance." },
     { title: "Loan Amount", content: "Usually ranges from 20 lakhs to 1.25 depending on the lender and course." },
-    { title: "Collateral Requirement", content: "Can be secured (with property, FD, etc.) or unsecured (no collateral, but with co-applicant)." },
+    { title: "Collateral Requirement", content: "Can be secured  or unsecured (no collateral, but with co-applicant)." },
     { title: "Interest Rates", content: "Floating interest, typically 8.5% to 12.87% per annum depending on bank/NBFC." },
     { title: "Moratorium Period", content: "No repayment during the study period + (6 to 12 months) after course completion." },
     { title: "Repayment Tenure", content: "Flexible, usually 7 to 13 years after moratorium." },
