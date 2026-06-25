@@ -47,6 +47,9 @@ const Footer = () => {
               <a href="tel:+918344232397" className="text-primary font-black italic block mb-1 hover:text-secondary transition-colors underline decoration-accent/20 decoration-2 underline-offset-4 tracking-widest">
                 +91 83442 32397
               </a>
+               <a href="tel:+919360501932" className="text-primary font-black italic block mb-4 hover:text-secondary transition-colors underline decoration-accent/20 decoration-2 underline-offset-4 tracking-widest">
+                +91 63825 01932
+              </a>
               <a href="tel:+919360501932" className="text-primary font-black italic block mb-4 hover:text-secondary transition-colors underline decoration-accent/20 decoration-2 underline-offset-4 tracking-widest">
                 +91 93605 01932
               </a>
