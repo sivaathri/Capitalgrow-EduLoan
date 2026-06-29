@@ -54,8 +54,8 @@ const Footer = () => {
                 +91 93605 01932
               </a>
               <span className="opacity-40 italic block -mb-1">Support Email:</span>
-              <a href="mailto:amarfinserv@gmail.com" className="text-primary font-black italic block hover:text-secondary transition-colors lowercase tracking-normal underline decoration-accent/20 decoration-2 underline-offset-4 text-[13px]">
-                amarfinserv@gmail.com
+              <a href="mailto:info@capitalgrow.co.in" className="text-primary font-black italic block hover:text-secondary transition-colors lowercase tracking-normal underline decoration-accent/20 decoration-2 underline-offset-4 text-[13px]">
+               info@capitalgrow.co.in
               </a>
             </div>
           </div>
