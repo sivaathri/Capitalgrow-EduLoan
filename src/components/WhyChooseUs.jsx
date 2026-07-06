@@ -22,7 +22,7 @@ const WhyChooseUs = () => {
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-12 uppercase leading-none tracking-tighter">
               Why Students <br /> Trust Capital <span className="text-accent">Grow.</span>
             </h2>
-            
+            {/* hello */}
             <div className="space-y-12 mb-16">
               {[
                 { 
