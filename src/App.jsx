@@ -10,6 +10,7 @@ const BankPartners = lazy(() => import('./components/BankPartners'));
 const Footer = lazy(() => import('./components/Footer'));
 const BackToTop = lazy(() => import('./components/BackToTop'));
 const LoanStats = lazy(() => import('./components/LoanStats'));
+const FAQ = lazy(() => import('./components/FAQ'));
 
 import personalLoanIcon from './assets/personal_loan.png';
 import businessLoanIcon from './assets/business_loan.png';
@@ -79,6 +80,7 @@ function App() {
           </div>
 
         </div>
+        <FAQ onApply={scrollToForm} />
         <Footer />
         <BackToTop />
       </Suspense>
