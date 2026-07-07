@@ -67,7 +67,7 @@ const CustomSelect = ({
 
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full pl-10 pr-10 py-3 bg-white border ${isOpen ? "border-[#1E2D4A] ring-1 ring-[#1E2D4A]" : "border-gray-200"} rounded-lg text-[14px] outline-none transition-all cursor-pointer font-medium flex items-center ${!value ? "text-gray-400" : "text-gray-800"}`}
+        className={`w-full pl-10 pr-10 py-3 bg-white border ${isOpen ? "border-[#1E2D4A] ring-1 ring-[#1E2D4A]" : "border-gray-200"} rounded-lg text-[14px] outline-none transition-all cursor-pointer font-medium flex items-center ${!value ? "text-slate-600" : "text-gray-800"}`}
       >
         <span className="truncate flex-1 select-none">{displayLabel}</span>
         <ChevronDown
@@ -210,7 +210,7 @@ const LeadForm = ({ isHero = false }) => {
         <h3 className="text-[20px] lg:text-[24px] font-black text-[#1E2D4A] mb-1">
           How can we assist you today?<span className="text-red-500">*</span>
         </h3>
-        <p className="text-slate-500 text-xs lg:text-sm font-medium">
+        <p className="text-slate-600 text-xs lg:text-sm font-medium">
           Get personalized guidance for your global education.
         </p>
       </div>
@@ -231,7 +231,7 @@ const LeadForm = ({ isHero = false }) => {
             <h4 className="text-[15px] font-bold text-gray-900">
               Study Loan & Funding
             </h4>
-            <p className="text-[11px] text-gray-400 font-medium">
+            <p className="text-[11px] text-slate-600 font-medium">
               Best loan options & support.
             </p>
           </div>
@@ -328,7 +328,7 @@ const LeadForm = ({ isHero = false }) => {
         </div>
       </div>
 
-      <p className="text-[11px] text-gray-400 italic mb-4 lg:mb-6 px-4 leading-relaxed font-medium">
+      <p className="text-[11px] text-slate-600 italic mb-4 lg:mb-6 px-4 leading-relaxed font-medium">
         By providing your phone number, you consent to be contacted by our team
         via call, SMS, or WhatsApp. This will override DND/NCPR settings.
       </p>
@@ -347,7 +347,7 @@ const LeadForm = ({ isHero = false }) => {
           Connect Me With an Expert
         </button>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-6 lg:gap-x-8 gap-y-2 lg:gap-y-3 text-[12px] lg:text-[13px] font-bold text-slate-500">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 lg:gap-x-8 gap-y-2 lg:gap-y-3 text-[12px] lg:text-[13px] font-bold text-slate-600">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-green-500" /> Quick Response
           </div>

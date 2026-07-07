@@ -40,7 +40,7 @@ const BankPartners = () => {
 
         <div className="flex flex-col items-center gap-4 mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-black text-[#1E2D4A]">Our Banking Partners</h2>
-          <p className="text-lg text-slate-400 font-medium">We collaborate with top lenders to provide you with the best financial solutions.</p>
+          <p className="text-lg text-slate-600 font-medium">We collaborate with top lenders to provide you with the best financial solutions.</p>
         </div>
 
         {/* Desktop View: Exact Grid Layout */}
@@ -52,6 +52,7 @@ const BankPartners = () => {
                   src={bank.img}
                   alt={bank.name}
                   className="max-h-full max-w-full object-contain"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -65,6 +66,7 @@ const BankPartners = () => {
                     src={bank.img}
                     alt={bank.name}
                     className="max-h-full max-w-full object-contain"
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -80,13 +82,14 @@ const BankPartners = () => {
                 src={bank.img}
                 alt={bank.name}
                 className="max-h-full max-w-full object-contain"
+                loading="lazy"
               />
             </div>
           ))}
         </div>
         <div className="flex items-center gap-4 mb-4 mt-20">
           <div className="h-px flex-1 bg-slate-100"></div>
-          <h2 className="text-2xl font-bold text-slate-400 uppercase tracking-[0.3em]">DSA Partner</h2>
+          <h2 className="text-2xl font-bold text-slate-600 uppercase tracking-[0.3em]">DSA Partner</h2>
           <div className="h-px flex-1 bg-slate-100"></div>
         </div>
 
@@ -97,7 +100,7 @@ const BankPartners = () => {
             viewport={{ once: true }}
             className="bg-white border border-slate-100 p-6 rounded-3xl shadow-sm hover:shadow-md transition-all flex items-center justify-center w-64 h-32"
           >
-            <img src={ruLoansLogo} alt="RU Loans" className="max-w-full max-h-100 object-contain" />
+            <img src={ruLoansLogo} alt="RU Loans" loading="lazy" className="max-w-full max-h-100 object-contain" />
           </motion.div>
         </div>
       </div>

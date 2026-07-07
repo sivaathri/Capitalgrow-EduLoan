@@ -101,7 +101,7 @@ const FAQ = ({ onApply }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-slate-500 font-medium text-sm md:text-base max-w-xl mx-auto"
+            className="text-slate-600 font-medium text-sm md:text-base max-w-xl mx-auto"
           >
             Find comprehensive information about study abroad loans, collateral policies, and local support in Pondicherry.
           </motion.p>
@@ -123,7 +123,10 @@ const FAQ = ({ onApply }) => {
                 }`}
               >
                 <button
+                  id={`faq-btn-${index}`}
                   onClick={() => toggleAccordion(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${index}`}
                   className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none group"
                 >
                   <div className="flex gap-4 items-start pr-4">
@@ -146,12 +149,15 @@ const FAQ = ({ onApply }) => {
                 <AnimatePresence initial={false}>
                   {isOpen && (
                     <motion.div
+                      id={`faq-panel-${index}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                     >
-                      <div className="px-5 md:px-6 pb-6 pl-14 text-sm md:text-base leading-relaxed text-slate-600 font-medium border-t border-slate-50 pt-4">
+                      <div className="px-5 md:px-6 pb-6 pl-14 text-sm md:text-base leading-relaxed text-slate-700 font-medium border-t border-slate-50 pt-4">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -172,7 +178,7 @@ const FAQ = ({ onApply }) => {
           <h3 className="text-xl md:text-2xl font-black text-[#1E2D4A] mb-3">
             Still Have Questions About Abroad Education Loans?
           </h3>
-          <p className="text-slate-500 font-medium text-sm max-w-lg mx-auto mb-6">
+          <p className="text-slate-600 font-medium text-sm max-w-lg mx-auto mb-6">
             Get in touch with Capital Grow today for premium, zero-cost study abroad loan assistance in Pondicherry.
           </p>
           <button

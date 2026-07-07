@@ -67,7 +67,9 @@ function App() {
                 whileHover={{ y: -8, scale: 1.02 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05, type: "spring", stiffness: 300, damping: 15 }}
-                className="flex flex-col items-center text-center group cursor-pointer"
+                className="flex flex-col items-center text-center group cursor-pointer focus:outline-none"
+                role="button"
+                tabIndex={0}
               >
                 <div className="w-28 h-28 mb-4 rounded-3xl bg-white border border-slate-100 flex items-center justify-center p-4 transition-colors duration-500 group-hover:bg-sky-50 group-hover:border-sky-100 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group-hover:shadow-[0_20px_40px_rgba(14,165,233,0.1)]">
                   <img src={service.icon} alt={service.name} className="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform duration-500" />

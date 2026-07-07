@@ -17,7 +17,7 @@ const Footer = () => {
                 <span className="text-[#FF6B00]">Financing Future.</span>
               </span>
             </div>
-            <p className="text-lg text-slate-400 leading-relaxed font-heading italic tracking-tight mb-12">
+            <p className="text-lg text-slate-600 leading-relaxed font-heading italic tracking-tight mb-12">
               Empowering the next generation of global leaders with customized financial solutions for international studies.
             </p>
             {/* <div className="flex gap-6">
@@ -32,7 +32,7 @@ const Footer = () => {
           {/* Location */}
           <div>
             <h4 className="text-[12px] font-black uppercase tracking-[0.5em] text-secondary mb-8 md:mb-12 border-b border-slate-50 pb-4 italic">Region</h4>
-            <div className="text-primary/40 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic text-left">
+            <div className="text-slate-600 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic text-left">
               <span className="text-primary font-black italic block mb-2 underline decoration-accent/20 decoration-2 underline-offset-4 pointer-events-none">PUDUCHERRY HEADQUARTER</span>
               #1, 4th Cross, Anna Nagar East<br />
               PUDUCHERRY,605005<br />
@@ -43,7 +43,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="text-[12px] font-black uppercase tracking-[0.5em] text-secondary mb-8 md:mb-12 border-b border-slate-50 pb-4 italic">Contact</h4>
-            <div className="text-primary/40 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic text-left">
+            <div className="text-slate-600 uppercase font-black text-[12px] tracking-[0.4em] leading-loose italic text-left">
               <a href="tel:+918344232397" className="text-primary font-black italic block mb-1 hover:text-secondary transition-colors underline decoration-accent/20 decoration-2 underline-offset-4 tracking-widest">
                 +91 83442 32397
               </a>
@@ -62,7 +62,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 relative z-20">
-          <div className="text-[11px] font-medium tracking-tight text-slate-400">
+          <div className="text-[11px] font-medium tracking-tight text-slate-600">
          © 2026 Pondy IT Solutions Made with | All rights reserved 💚
           </div>
           {/* <div className="flex gap-4 text-[11px] font-medium tracking-tight text-slate-400">

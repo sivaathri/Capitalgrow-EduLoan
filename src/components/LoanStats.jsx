@@ -34,7 +34,7 @@ const LoanStats = ({ onCheckEligibility }) => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-slate-500 font-medium leading-relaxed max-w-lg mb-10"
+              className="text-lg text-slate-600 font-medium leading-relaxed max-w-lg mb-10"
             >
               Get instant access to education loans from 20+ leading banks with customizable repayment options and 100% assistance.
             </motion.p>
@@ -60,7 +60,7 @@ const LoanStats = ({ onCheckEligibility }) => {
               Check Your Eligibility Now
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </button>
-            <div className="flex items-center gap-2 mt-4 text-[#94A3B8] text-[11px] font-bold uppercase tracking-wider px-2">
+            <div className="flex items-center gap-2 mt-4 text-slate-600 text-[11px] font-bold uppercase tracking-wider px-2">
               <ShieldCheck className="w-3.5 h-3.5 text-[#5DA7DB]" />
               100% Secure • No Impact on Credit Score
             </div>
@@ -104,9 +104,9 @@ const LoanStats = ({ onCheckEligibility }) => {
                     {card.icon}
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">{card.title}</span>
+                    <span className="text-[10px] font-black uppercase text-slate-600 tracking-widest mb-1">{card.title}</span>
                     <span className="text-[#1E2D4A] font-bold text-lg leading-tight">{card.desc}</span>
-                    <span className="text-slate-500 font-medium text-[13px] mt-1">{card.sub}</span>
+                    <span className="text-slate-600 font-medium text-[13px] mt-1">{card.sub}</span>
                   </div>
                 </motion.div>
               ))}

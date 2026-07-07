@@ -21,6 +21,8 @@ const Hero = () => {
           src={heroStudent} 
           alt="Student preparing for study abroad education loan - Capital Grow" 
           className="w-full h-200 object-contain object-right-top mt-10 lg:mt-15 opacity-90 transition-transform duration-700"
+          fetchpriority="high"
+          decoding="async"
         />
       </div>
 
