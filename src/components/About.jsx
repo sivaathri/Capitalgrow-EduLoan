@@ -18,7 +18,7 @@ const About = () => {
     { name: "SBI", image: sbiLogo, color: "#29AAD0" },
     { name: "Bank of Baroda", image: bobLogo, color: "#F15A22" },
     { name: "Indian Bank", image: indianBankLogo, color: "#004B8D" },
-    { name: "IOB", image: iobLogo, color: "#003A70" },
+    { name: "IOB", image: null, color: "#003A70" },
     { name: "Credila", image: credilaLogo, color: "#DB0011" },
     { name: "Axis Bank", image: axisLogo, color: "#97124B" },
     { name: "ICICI Bank", image: iciciLogo, color: "#F37021" },
